@@ -1,11 +1,12 @@
 import { useState } from 'react';
 // import { Link } from 'react-router-dom';
 
-import { Avatar, Menu } from '@material-ui/core';
-import { Apps, Notifications, Search, VideoCall } from '@material-ui/icons';
+import { Avatar, IconButton } from '@material-ui/core';
+import { Apps, Menu, Notifications, Search, VideoCall } from '@material-ui/icons';
 
-import { ReactComponent as YoutubeLogo } from '../Assets/logo/youtube-full.svg';
+import { ReactComponent as YouTubeLogo } from '../Assets/logo/youtube-full.svg';
 import '../css/Header.css';
+
 const Header = () => {
   const [input, setInput] = useState('');
 
@@ -16,8 +17,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__left">
-        <Menu id="hamburgerIcon" className="header__icon" />
-        <YoutubeLogo className="header__logo" alt="Youtube logo" />
+        <IconButton>
+          <Menu id="hamburgerIcon" className="header__icon" />
+        </IconButton>
+        <YouTubeLogo className="header__logo" alt="Youtube logo" />
       </div>
       <div className="header__center">
         <form className="header__centerIn" onSubmit={submitHandler}>
@@ -34,9 +37,15 @@ const Header = () => {
         </form>
       </div>
       <div className="header__right">
-        <VideoCall className="header__icon" />
-        <Apps className="header__icon" />
-        <Notifications className="header__icon" />
+        <IconButton>
+          <VideoCall className="header__icon" />
+        </IconButton>
+        <IconButton>
+          <Apps className="header__icon" />
+        </IconButton>
+        <IconButton>
+          <Notifications className="header__icon" />
+        </IconButton>
         <Avatar className="header__avatar" />
       </div>
     </header>

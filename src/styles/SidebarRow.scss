@@ -1,0 +1,38 @@
+@use './mixins' as mxn;
+@use './colors' as clr;
+
+.sidebarRow {
+  @include mxn.flex;
+  padding: 0.4em 1.2em;
+
+  &:first-of-type {
+    margin-top: 0.5em;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: clr.$clr-sbr-hover-bg;
+  }
+
+  &.selected {
+    background: clr.$clr-sbr-hover-bg;
+    svg {
+      fill: clr.$clr-sbr-icon-selected;
+    }
+    .sidebarRow__title {
+      color: clr.$clr-text-primary;
+      font-weight: 700;
+    }
+  }
+  svg {
+    fill: clr.$clr-sbr-icon;
+    margin-right: 0.9em;
+    font-size: 1.5rem;
+  }
+  .sidebarRow__title {
+    flex: 1;
+    font-weight: normal;
+    font-size: 0.85rem;
+    color: clr.$clr-sbr-icon;
+  }
+}

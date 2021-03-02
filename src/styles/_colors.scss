@@ -1,4 +1,5 @@
 $clr-white: #fff;
+$clr-text-primary: #030303;
 
 // Header Colors
 $clr-hdr-text: #606060;
@@ -6,3 +7,8 @@ $clr-hdr-sb-btn-bg: #f8f8f8;
 $clr-hdr-sb-btn: #333;
 $clr-hdr-sb-border: #ccc;
 $clr-hdr-icon: #606060;
+
+// SidebarRow
+$clr-sbr-icon: $clr-hdr-text;
+$clr-sbr-icon-selected: #f00;
+$clr-sbr-hover-bg: #d9d9d9;

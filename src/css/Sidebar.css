@@ -1,0 +1,11 @@
+.sidebar {
+  width: 200px;
+}
+.sidebar > hr {
+  height: 1px;
+  border: 0;
+  background-color: lightgray;
+  margin: 0.5em 0;
+}
+
+/*# sourceMappingURL=Sidebar.css.map */

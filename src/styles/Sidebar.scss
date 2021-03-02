@@ -1,0 +1,9 @@
+.sidebar {
+  width: 200px;
+  & > hr {
+    height: 1px;
+    border: 0;
+    background-color: lightgray;
+    margin: 0.5em 0;
+  }
+}

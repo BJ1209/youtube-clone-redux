@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: stretch;
   justify-content: space-between;
-  padding: 0.5em 1.4em;
+  padding: 0.2em 0.5em 0;
   z-index: 3;
   background-color: #fff;
 }
@@ -13,10 +13,15 @@
 }
 .header .header__left {
   flex: 0.15;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
 }
 .header .header__left .header__logo {
   object-fit: contain;
-  height: 1.15em;
+  height: 1.05em;
+  margin-left: 0.5em;
 }
 .header .header__center {
   flex: 0.7;
@@ -38,6 +43,9 @@
   font-size: 0.9rem;
   padding: 0.3em 1em;
 }
+.header .header__center .header__centerIn Input:focus {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) inset, -1px 0px 2px rgba(0, 0, 0, 0.3);
+}
 .header .header__center .header__centerIn button {
   border: none;
   outline: none;
@@ -55,7 +63,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .header .header__right .header__avatar {
   height: 1.5em !important;
