@@ -1,0 +1,60 @@
+@use './colors' as clr;
+@use './mixins' as mxn;
+
+.header {
+  @include mxn.flex {
+    justify-content: space-between;
+  }
+  padding: 0.5em 1.4em;
+  z-index: 3;
+  background-color: clr.$clr-white;
+  .header__icon {
+    color: clr.$clr-hdr-icon;
+  }
+  .header__left {
+    flex: 0.15;
+    .header__logo {
+      object-fit: contain;
+      height: 1.15em;
+    }
+  }
+  .header__center {
+    flex: 0.7;
+    .header__centerIn {
+      @include mxn.flex {
+        justify-content: center;
+        border: 1px solid clr.$clr-hdr-sb-border;
+        width: 60%;
+        margin: 0 auto;
+      }
+      Input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 0.9rem;
+        padding: 0.3em 1em;
+        // box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) inset, -1px 0px 2px rgba(0, 0, 0, 0.3);
+      }
+      button {
+        border: none;
+        outline: none;
+        width: 4.5em;
+        cursor: pointer;
+        background-color: clr.$clr-hdr-sb-btn-bg;
+        svg {
+          font-size: 1.3rem;
+          color: clr.$clr-hdr-sb-btn;
+        }
+      }
+    }
+  }
+  .header__right {
+    flex: 0.15;
+    @include mxn.flex;
+    justify-content: space-evenly;
+    .header__avatar {
+      height: 1.5em !important;
+      width: 1.5em !important;
+    }
+  }
+}
