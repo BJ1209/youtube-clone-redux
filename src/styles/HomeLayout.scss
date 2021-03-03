@@ -1,0 +1,9 @@
+@use './variables' as var;
+@use './colors' as clr;
+
+.HomeLayout {
+  flex: 1;
+  background: clr.$clr-layout-body;
+  padding: 1em;
+  overflow-y: scroll;
+}

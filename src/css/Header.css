@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: stretch;
 }
-.header .header__left .header__logo {
+.header .header__left > svg {
   object-fit: contain;
   height: 1.05em;
   margin-left: 0.5em;

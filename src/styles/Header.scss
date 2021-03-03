@@ -9,21 +9,21 @@
   z-index: 3;
   background-color: clr.$clr-white;
 
-  .header__icon {
+  #{&}__icon {
     color: clr.$clr-hdr-icon;
   }
 
-  .header__left {
+  #{&}__left {
     flex: 0.15;
     @include mxn.flex;
-    .header__logo {
+    & > svg {
       object-fit: contain;
       height: 1.05em;
       margin-left: 0.5em;
     }
   }
 
-  .header__center {
+  #{&}__center {
     flex: 0.7;
     .header__centerIn {
       @include mxn.flex {
@@ -56,7 +56,7 @@
     }
   }
 
-  .header__right {
+  #{&}__right {
     flex: 0.15;
     @include mxn.flex;
     justify-content: space-around;

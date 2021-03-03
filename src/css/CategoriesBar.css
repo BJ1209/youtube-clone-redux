@@ -1,0 +1,22 @@
+.categoriesBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  gap: 0.5em;
+  overflow-x: scroll;
+  padding-bottom: 0.5em;
+}
+.categoriesBar button {
+  padding: 0.2em 0.8em;
+  background: transparent;
+  outline: none;
+  border-radius: 150px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.categoriesBar button p {
+  font-size: 0.9rem;
+}
+
+/*# sourceMappingURL=CategoriesBar.css.map */

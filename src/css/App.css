@@ -5,6 +5,7 @@
 }
 .app .app__body {
   flex: 1;
+  display: flex;
 }
 
 /*# sourceMappingURL=App.css.map */
