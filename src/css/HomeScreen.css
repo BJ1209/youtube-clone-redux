@@ -1,3 +1,8 @@
-
+.homescreen__videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1.2em 1.5em;
+}
 
 /*# sourceMappingURL=HomeScreen.css.map */

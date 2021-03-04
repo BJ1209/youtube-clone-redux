@@ -1,22 +1,42 @@
 @use './mixins' as mxn;
+@use './variables' as var;
+@use './colors' as clr;
 
 .categoriesBar {
   @include mxn.flex;
-  gap: 0.5em;
   overflow-x: scroll;
-  padding-bottom: 0.5em;
-  // &::-webkit-scrollbar {
-  //   display: none;
-  // }
+  padding: 0.8em 0;
+  border-top: var.$border;
+  border-bottom: var.$border;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   button {
-    padding: 0.2em 0.8em;
-    background: transparent;
+    margin-left: 0.6em;
+    padding: 0.4em 1em;
+    background: clr.$clr-cat-bg;
     outline: none;
     border-radius: 150px;
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    &:hover {
+      background: clr.$clr-cat-bg-hover;
+    }
+    &.active {
+      background: clr.$clr-cat-active-bg;
+      color: clr.$clr-cat-active-text;
+      &:hover {
+        background: clr.$clr-cat-active-bg-hover;
+      }
+    }
+
     p {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
     }
   }
 }

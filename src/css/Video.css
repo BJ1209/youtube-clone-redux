@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.video {
+  border: 1px solid;
+  width: 296px;
+  display: flex;
+  flex-direction: column;
+}
+.video .video__image {
+  aspect-ratio: 16/10;
+}
+.video .video__info {
+  display: flex;
+  padding: 0.5em;
+}
+.video .video__avatar {
+  margin-right: 0.5em;
+}
+.video .video__desc h3 {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.2em;
+}
+.video .video__desc p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.65);
+}
+.video .video__desc p span:first-of-type::after {
+  content: "•";
+  margin: 0 4px;
+}
+
+/*# sourceMappingURL=Video.css.map */

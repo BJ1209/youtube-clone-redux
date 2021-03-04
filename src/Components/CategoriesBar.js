@@ -13,7 +13,7 @@ const categories = [
   'javascript',
   'Flutter',
   'Comedy',
-  'CryptoCurrency',
+  'Crypto Currency',
   'Machine Learning',
   'Websites',
   'conversations',
@@ -23,12 +23,18 @@ const categories = [
 const CategoriesBar = () => {
   const [activeElement, setActiveElement] = useState('All');
 
-  console.log(activeElement);
+  const activeElementHandler = (category) => {
+    setActiveElement(category);
+  };
 
   return (
     <div className="categoriesBar">
       {categories.map((category, index) => (
-        <button key={index} onClick={() => setActiveElement(categories[index])}>
+        <button
+          className={activeElement === category ? 'active' : ''}
+          key={index}
+          onClick={() => activeElementHandler(category)}
+        >
           <p>{category}</p>
         </button>
       ))}
