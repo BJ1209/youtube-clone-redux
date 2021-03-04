@@ -9,5 +9,9 @@
   background-color: lightgray;
   margin: 0.5em 0;
 }
+.sidebar > p {
+  padding: 0.5em 1.5em;
+  font-size: 0.9rem;
+}
 
 /*# sourceMappingURL=Sidebar.css.map */

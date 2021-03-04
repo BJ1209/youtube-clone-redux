@@ -59,10 +59,35 @@
   #{&}__right {
     flex: 0.15;
     @include mxn.flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+
+    .header__icon {
+      margin-right: 0.5em;
+    }
+    &.user {
+      justify-content: space-around !important;
+      .header__icon {
+        margin-right: 0;
+      }
+    }
+
     .header__avatar {
       height: 1.5em !important;
       width: 1.5em !important;
+    }
+  }
+  #{&}__button {
+    margin-right: 0.5em;
+    @include mxn.flex;
+    border: 1px solid clr.$clr-hdr-button;
+    padding: 0.2em 0.5em;
+    background: transparent;
+    span {
+      text-transform: uppercase;
+      color: clr.$clr-hdr-button;
+      &:last-of-type {
+        font-weight: 600;
+      }
     }
   }
 }

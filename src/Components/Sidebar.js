@@ -16,6 +16,8 @@ const Sidebar = () => {
       <SidebarRow title="Your Videos" Icon={OndemandVideo} />
       <SidebarRow title="Show More" Icon={ExpandMoreOutlined} /> */}
       <hr />
+      <p>Sign in to like videos, comment, and subscribe.</p>
+      <hr />
     </aside>
   );
 };

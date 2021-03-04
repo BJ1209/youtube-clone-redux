@@ -2,13 +2,22 @@ import { useState } from 'react';
 // import { Link } from 'react-router-dom';
 
 import { Avatar, IconButton } from '@material-ui/core';
-import { Apps, Menu, Notifications, Search, VideoCall } from '@material-ui/icons';
+import {
+  AccountCircle,
+  Apps,
+  Menu,
+  MoreVert,
+  Notifications,
+  Search,
+  VideoCall,
+} from '@material-ui/icons';
 
 import { ReactComponent as YouTubeLogo } from '../Assets/logo/youtube-full.svg';
 import '../css/Header.css';
 
 const Header = () => {
   const [input, setInput] = useState('');
+  const [user, setUser] = useState(null);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -36,17 +45,34 @@ const Header = () => {
           </button>
         </form>
       </div>
-      <div className="header__right">
-        <IconButton>
-          <VideoCall className="header__icon" />
-        </IconButton>
+      <div className={`header__right ${user ? 'user' : ''}`}>
+        {user && (
+          <IconButton>
+            <VideoCall className="header__icon" />
+          </IconButton>
+        )}
         <IconButton>
           <Apps className="header__icon" />
         </IconButton>
-        <IconButton>
-          <Notifications className="header__icon" />
-        </IconButton>
-        <Avatar className="header__avatar" />
+        {user ? (
+          <IconButton>
+            <Notifications className="header__icon" />
+          </IconButton>
+        ) : (
+          <IconButton>
+            <MoreVert className="header__icon" />
+          </IconButton>
+        )}
+        {user ? (
+          <Avatar className="header__avatar" />
+        ) : (
+          <button className="header__button">
+            <span>
+              <AccountCircle />
+            </span>
+            <span> sign in </span>
+          </button>
+        )}
       </div>
     </header>
   );
