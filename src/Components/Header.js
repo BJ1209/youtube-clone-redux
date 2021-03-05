@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Avatar, IconButton } from '@material-ui/core';
 import {
@@ -13,14 +13,24 @@ import {
 } from '@material-ui/icons';
 
 import { ReactComponent as YouTubeLogo } from '../Assets/logo/youtube-full.svg';
+import { auth, googleProvider } from '../config/firebase';
 import '../css/Header.css';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 const Header = () => {
   const [input, setInput] = useState('');
-  const [user, setUser] = useState(null);
+  const user = useSelector(selectUser);
 
   const submitHandler = (e) => {
     e.preventDefault();
+  };
+
+  const loginHandler = () => {
+    auth
+      .signInWithPopup(googleProvider)
+      .then((user) => user)
+      .catch((err) => alert(err.message));
   };
 
   return (
@@ -29,7 +39,9 @@ const Header = () => {
         <IconButton>
           <Menu id="hamburgerIcon" className="header__icon" />
         </IconButton>
-        <YouTubeLogo className="header__logo" alt="Youtube logo" />
+        <Link to="/">
+          <YouTubeLogo className="header__logo" alt="Youtube logo" />
+        </Link>
       </div>
       <div className="header__center">
         <form className="header__centerIn" onSubmit={submitHandler}>
@@ -66,7 +78,7 @@ const Header = () => {
         {user ? (
           <Avatar className="header__avatar" />
         ) : (
-          <button className="header__button">
+          <button className="header__button" onClick={loginHandler}>
             <span>
               <AccountCircle />
             </span>

@@ -1,12 +1,54 @@
 @use './mixins' as mxn;
 
 .video {
-  border: 1px solid;
   width: 296px;
   display: flex;
   flex-direction: column;
+  &:hover {
+    .video__btn {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  #{&}__container {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    position: relative;
+  }
+  :is(#{&}__time, #{&}__btn) {
+    position: absolute;
+    right: 5px;
+    background: rgba($color: #000000, $alpha: 0.8);
+    color: white;
+    border-radius: 4px;
+  }
+  #{&}__time {
+    bottom: 5px;
+    z-index: 3;
+    padding: 0.2em 0.5em 0.3em;
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+  #{&}__btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0.1em;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1 linear;
+    &.schedule {
+      top: 4px;
+      @include mxn.buttonBefore(-111px, -1px, "Watch Later");
+    }
+    &.queue {
+      top: 36px;
+      @include mxn.buttonBefore(-118px, -1px, "Add to queue");
+    }
+  }
   #{&}__image {
     aspect-ratio: 16 / 10;
+    width: 100%;
   }
   #{&}__info {
     display: flex;

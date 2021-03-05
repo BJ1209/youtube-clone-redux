@@ -1,12 +1,86 @@
 @charset "UTF-8";
 .video {
-  border: 1px solid;
   width: 296px;
   display: flex;
   flex-direction: column;
 }
+.video:hover .video__btn {
+  opacity: 1;
+  pointer-events: all;
+}
+.video .video__container {
+  width: 100%;
+  aspect-ratio: 16/10;
+  position: relative;
+}
+.video :is(.video__time, .video__btn) {
+  position: absolute;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 4px;
+}
+.video .video__time {
+  bottom: 5px;
+  z-index: 3;
+  padding: 0.2em 0.5em 0.3em;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+.video .video__btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0.1em;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.1 linear;
+}
+.video .video__btn.schedule {
+  top: 4px;
+}
+.video .video__btn.schedule::before {
+  content: "Watch Later";
+  position: inherit;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-1px) translateX(-111px) scaleX(0);
+  white-space: nowrap;
+  padding: 0.52em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  transform-origin: right;
+  border-radius: 3px 0 0 3px;
+  transition: transform 0.15s linear;
+}
+.video .video__btn.schedule:hover::before {
+  transform: translateY(-1px) translateX(-111px) scaleX(1);
+}
+.video .video__btn.queue {
+  top: 36px;
+}
+.video .video__btn.queue::before {
+  content: "Add to queue";
+  position: inherit;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-1px) translateX(-118px) scaleX(0);
+  white-space: nowrap;
+  padding: 0.52em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  transform-origin: right;
+  border-radius: 3px 0 0 3px;
+  transition: transform 0.15s linear;
+}
+.video .video__btn.queue:hover::before {
+  transform: translateY(-1px) translateX(-118px) scaleX(1);
+}
 .video .video__image {
   aspect-ratio: 16/10;
+  width: 100%;
 }
 .video .video__info {
   display: flex;

@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: stretch;
 }
-.header .header__left > svg {
+.header .header__left > a > svg {
   object-fit: contain;
   height: 1.05em;
   margin-left: 0.5em;
@@ -87,6 +87,7 @@
   border: 1px solid #065fd4;
   padding: 0.2em 0.5em;
   background: transparent;
+  cursor: pointer;
 }
 .header .header__button span {
   text-transform: uppercase;

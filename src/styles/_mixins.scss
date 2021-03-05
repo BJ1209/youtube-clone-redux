@@ -10,3 +10,24 @@
   display: grid;
   place-items: center;
 }
+
+@mixin buttonBefore($x, $y, $content) {
+  &::before {
+    content: $content;
+    position: inherit;
+    text-transform: uppercase;
+    background: rgba($color: #000000, $alpha: 0.8);
+    transform: translateY($y) translateX($x) scaleX(0);
+    white-space: nowrap;
+    padding: 0.52em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    transform-origin: right;
+    border-radius: 3px 0 0 3px;
+    transition: transform 0.15s linear;
+  }
+  &:hover::before {
+    transform: translateY($y) translateX($x) scaleX(1);
+  }
+}

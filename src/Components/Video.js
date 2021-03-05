@@ -1,13 +1,23 @@
 import { Avatar } from '@material-ui/core';
+import { QueueMusic, Schedule } from '@material-ui/icons';
 import '../css/Video.css';
 const Video = () => {
   return (
     <div className="video">
-      <img
-        src="https://material-ui.com/static/ads-in-house/figma.png"
-        alt="Video Poster"
-        className="video__image"
-      />
+      <div className="video__container">
+        <img
+          src="https://material-ui.com/static/ads-in-house/figma.png"
+          alt="Video Poster"
+          className="video__image"
+        />
+        <div className="video__time">10:20</div>
+        <button className="video__btn schedule">
+          <Schedule />
+        </button>
+        <button className="video__btn queue ">
+          <QueueMusic />
+        </button>
+      </div>
       <div className="video__info">
         <Avatar
           src="https://yt3.ggpht.com/ytc/AAUvwnijTRHNRno0y9_HZN3s8mrRlt6e4Vx_mUtDyM9bVQ=s68-c-k-c0x00ffffff-no-rj"

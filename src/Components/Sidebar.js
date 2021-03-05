@@ -1,8 +1,11 @@
 import SidebarRow from './SidebarRow';
 import '../css/Sidebar.css';
 import { History, Home, Subscriptions, VideoLibrary, Whatshot } from '@material-ui/icons';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 const Sidebar = () => {
+  const user = useSelector(selectUser);
   return (
     <aside className="sidebar">
       <SidebarRow selected title="Home" Icon={<Home />} />
@@ -16,8 +19,12 @@ const Sidebar = () => {
       <SidebarRow title="Your Videos" Icon={OndemandVideo} />
       <SidebarRow title="Show More" Icon={ExpandMoreOutlined} /> */}
       <hr />
-      <p>Sign in to like videos, comment, and subscribe.</p>
-      <hr />
+      {!user ? (
+        <>
+          <p>Sign in to like videos, comment, and subscribe.</p>
+          <hr />
+        </>
+      ) : null}
     </aside>
   );
 };

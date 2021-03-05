@@ -16,7 +16,7 @@
   #{&}__left {
     flex: 0.15;
     @include mxn.flex;
-    & > svg {
+    & > a > svg {
       object-fit: contain;
       height: 1.05em;
       margin-left: 0.5em;
@@ -82,6 +82,7 @@
     border: 1px solid clr.$clr-hdr-button;
     padding: 0.2em 0.5em;
     background: transparent;
+    cursor: pointer;
     span {
       text-transform: uppercase;
       color: clr.$clr-hdr-button;
