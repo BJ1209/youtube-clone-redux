@@ -17,15 +17,17 @@
   }
   button {
     margin-left: 0.6em;
-    padding: 0.4em 1em;
+    padding: 0.4em 1em 0.5em;
     background: clr.$clr-cat-bg;
     outline: none;
     border-radius: 150px;
     cursor: pointer;
     border: 1px solid rgba($color: #000000, $alpha: 0.1);
+
     &:hover {
       background: clr.$clr-cat-bg-hover;
     }
+
     &.active {
       background: clr.$clr-cat-active-bg;
       color: clr.$clr-cat-active-text;

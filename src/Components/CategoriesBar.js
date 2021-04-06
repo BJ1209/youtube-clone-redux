@@ -6,7 +6,6 @@ const categories = [
   'ReactJs',
   'css',
   'BodyBuilding',
-  'PUBG',
   'Computer Programming',
   'Podcasts',
   'Firebase',

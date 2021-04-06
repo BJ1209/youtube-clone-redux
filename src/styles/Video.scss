@@ -15,6 +15,7 @@
     aspect-ratio: 16 / 10;
     position: relative;
   }
+
   :is(#{&}__time, #{&}__btn) {
     position: absolute;
     right: 5px;
@@ -22,8 +23,9 @@
     color: white;
     border-radius: 4px;
   }
+
   #{&}__time {
-    bottom: 5px;
+    bottom: 10px;
     z-index: 3;
     padding: 0.2em 0.5em 0.3em;
     font-weight: 600;
@@ -39,11 +41,11 @@
     transition: all 0.1 linear;
     &.schedule {
       top: 4px;
-      @include mxn.buttonBefore(-111px, -1px, "Watch Later");
+      @include mxn.buttonBefore(-106px, -1.5px, "Watch Later");
     }
     &.queue {
       top: 36px;
-      @include mxn.buttonBefore(-118px, -1px, "Add to queue");
+      @include mxn.buttonBefore(-111px, -1.5px, "Add to queue");
     }
   }
   #{&}__image {

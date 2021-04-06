@@ -1,16 +1,18 @@
 import SidebarRow from './SidebarRow';
 import '../css/Sidebar.css';
+
 import { History, Home, Subscriptions, VideoLibrary, Whatshot } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 
 const Sidebar = () => {
   const user = useSelector(selectUser);
+
   return (
     <aside className="sidebar">
       <SidebarRow selected title="Home" Icon={<Home />} />
       <SidebarRow title="Trending" Icon={<Whatshot />} />
-      <SidebarRow title="Subscrptions" Icon={<Subscriptions />} />
+      <SidebarRow title="Subscriptions" Icon={<Subscriptions />} />
       <hr />
       <SidebarRow title="Library" Icon={<VideoLibrary />} />
       <SidebarRow title="History" Icon={<History />} />

@@ -75,16 +75,7 @@ const Header = () => {
             <MoreVert className="header__icon" />
           </IconButton>
         )}
-        {user ? (
-          <Avatar className="header__avatar" />
-        ) : (
-          <button className="header__button" onClick={loginHandler}>
-            <span>
-              <AccountCircle />
-            </span>
-            <span> sign in </span>
-          </button>
-        )}
+        {user && <Avatar className="header__avatar" />}
       </div>
     </header>
   );

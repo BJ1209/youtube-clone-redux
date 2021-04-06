@@ -21,7 +21,7 @@
   border-radius: 4px;
 }
 .video .video__time {
-  bottom: 5px;
+  bottom: 10px;
   z-index: 3;
   padding: 0.2em 0.5em 0.3em;
   font-weight: 600;
@@ -44,18 +44,19 @@
   position: inherit;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.8);
-  transform: translateY(-1px) translateX(-111px) scaleX(0);
+  transform: translateY(-1.5px) translateX(-106px) scaleX(0);
   white-space: nowrap;
   padding: 0.52em;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: white;
   transform-origin: right;
   border-radius: 3px 0 0 3px;
-  transition: transform 0.15s linear;
+  transition: transform 0.1s linear;
+  transition-delay: 0.4s;
 }
 .video .video__btn.schedule:hover::before {
-  transform: translateY(-1px) translateX(-111px) scaleX(1);
+  transform: translateY(-1.5px) translateX(-106px) scaleX(1);
 }
 .video .video__btn.queue {
   top: 36px;
@@ -65,18 +66,19 @@
   position: inherit;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.8);
-  transform: translateY(-1px) translateX(-118px) scaleX(0);
+  transform: translateY(-1.5px) translateX(-111px) scaleX(0);
   white-space: nowrap;
   padding: 0.52em;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: white;
   transform-origin: right;
   border-radius: 3px 0 0 3px;
-  transition: transform 0.15s linear;
+  transition: transform 0.1s linear;
+  transition-delay: 0.4s;
 }
 .video .video__btn.queue:hover::before {
-  transform: translateY(-1px) translateX(-118px) scaleX(1);
+  transform: translateY(-1.5px) translateX(-111px) scaleX(1);
 }
 .video .video__image {
   aspect-ratio: 16/10;

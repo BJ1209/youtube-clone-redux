@@ -1,6 +1,7 @@
 import { Avatar } from '@material-ui/core';
 import { QueueMusic, Schedule } from '@material-ui/icons';
 import '../css/Video.css';
+
 const Video = () => {
   return (
     <div className="video">

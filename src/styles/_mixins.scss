@@ -20,12 +20,13 @@
     transform: translateY($y) translateX($x) scaleX(0);
     white-space: nowrap;
     padding: 0.52em;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: white;
     transform-origin: right;
     border-radius: 3px 0 0 3px;
-    transition: transform 0.15s linear;
+    transition: transform 0.1s linear;
+    transition-delay: 0.4s;
   }
   &:hover::before {
     transform: translateY($y) translateX($x) scaleX(1);

@@ -1,0 +1,37 @@
+.login {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.login .login__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  flex-direction: column;
+  border: 1.5px solid lightgray;
+  padding: 1.5em;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.login .login__logo {
+  object-fit: contain;
+  height: 4.5em;
+  width: 4.5em;
+}
+.login .login__button {
+  padding: 0.75em 1.5em;
+  margin-bottom: 0.8em;
+  border: 1px solid;
+  outline: none;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.login .login__description {
+  width: 75%;
+  text-align: center;
+}
+
+/*# sourceMappingURL=Login.css.map */
