@@ -8,4 +8,7 @@
 2. Redux
 3. Firebase
 4. React-Router-Dom
-5. React-Icons
+5. material-ui
+6. axios
+7. numeral
+8. moment

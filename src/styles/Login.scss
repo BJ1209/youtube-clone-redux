@@ -1,4 +1,5 @@
 @use './mixins' as mxn;
+@use './variables' as var;
 
 .login {
   height: 100%;
@@ -9,13 +10,23 @@
     flex-direction: column;
     border: 1.5px solid lightgray;
     padding: 1.5em;
-    border-radius: 6px;
+    border-radius: var.$br;
     box-shadow: 0 2px 5px rgba($color: #000000, $alpha: 0.3);
+  }
+  #{&}__title {
+    font-size: 2.5rem;
+    opacity: 0.75;
   }
   #{&}__logo {
     object-fit: contain;
     height: 4.5em;
     width: 4.5em;
+  }
+  #{&}__googleLogo {
+    object-fit: contain;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
   }
   #{&}__button {
     padding: 0.75em 1.5em;
@@ -26,9 +37,14 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
+    border-radius: var.$br;
+    font-weight: 500;
+    @include mxn.flex;
+    box-shadow: 0px 0px 4px rgba($color: #000000, $alpha: 0.25);
   }
   #{&}__description {
     width: 75%;
     text-align: center;
+    line-height: 150%;
   }
 }

@@ -1,19 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { Avatar, IconButton } from '@material-ui/core';
-import {
-  AccountCircle,
-  Apps,
-  Menu,
-  MoreVert,
-  Notifications,
-  Search,
-  VideoCall,
-} from '@material-ui/icons';
+import { Apps, Menu, MoreVert, Notifications, Search, VideoCall } from '@material-ui/icons';
 
 import { ReactComponent as YouTubeLogo } from '../Assets/logo/youtube-full.svg';
-import { auth, googleProvider } from '../config/firebase';
 import '../css/Header.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
@@ -24,13 +14,6 @@ const Header = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-  };
-
-  const loginHandler = () => {
-    auth
-      .signInWithPopup(googleProvider)
-      .then((user) => user)
-      .catch((err) => alert(err.message));
   };
 
   return (
