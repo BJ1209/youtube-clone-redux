@@ -20,7 +20,7 @@ export const videoSlice = createSlice({
 
 export const { setMostPopularMovies, setPageToken } = videoSlice.actions;
 
-export const selectVideos = (state) => state.video.mostPopularVideos;
+export const selectMostPopularVideos = (state) => state.video.mostPopularVideos;
 export const selectPageToken = (state) => state.video.nextPageToken;
 
 export default videoSlice.reducer;

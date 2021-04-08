@@ -6,7 +6,7 @@ import { getMostPopularVideos } from '../utils/requests';
 import '../css/HomeScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  selectVideos,
+  selectMostPopularVideos,
   selectPageToken,
   setMostPopularMovies,
   setPageToken,
@@ -14,10 +14,9 @@ import {
 
 const HomeScreen = () => {
   const dispatch = useDispatch(),
-    videos = useSelector(selectVideos),
+    videos = useSelector(selectMostPopularVideos),
     pageToken = useSelector(selectPageToken);
 
-  console.log(videos, pageToken);
   useEffect(() => {
     const fetchMostPopular = async () => {
       const res = await axios.get(getMostPopularVideos(''));
@@ -31,17 +30,9 @@ const HomeScreen = () => {
     <>
       <CategoriesBar />
       <div className="homescreen__videos">
-        <Video />
-        <Video />
-        <Video />
-        <Video />
-        <Video />
-        <Video />
-        <Video />
-        <Video />
-        <Video />
-        <Video />
-        <Video />
+        {videos.map((video) => (
+          <Video key={video.id} video={video} />
+        ))}
       </div>
     </>
   );
