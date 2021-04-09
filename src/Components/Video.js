@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react';
 import axios from '../utils/axios';
 import { Avatar } from '@material-ui/core';
 import { QueueMusic, Schedule } from '@material-ui/icons';
-import '../css/Video.css';
 import { getDuration, getPublishedDate, getViewCount } from '../utils/basicFunctions';
-import { getChannelDetails } from '../utils/requests';
+import { getChannelDetails, getVideoDetails } from '../utils/requests';
+import '../css/Video.css';
 
 const Video = ({ video }) => {
   const {
     id,
-    contentDetails: { duration },
     snippet: {
       title,
       channelId,
@@ -17,11 +16,13 @@ const Video = ({ video }) => {
       thumbnails: { medium },
       publishedAt,
     },
-    statistics: { viewCount },
   } = video;
-
   const [channelThumbnail, setChannelThumbnail] = useState('');
+  const [duration, setDuration] = useState('');
+  const [viewCount, setViewCount] = useState('');
+  const _videoId = id?.videoId || id;
 
+  // UseEffect For Channel Thumbnail
   useEffect(() => {
     const fetchDetails = async () => {
       const res = await axios.get(getChannelDetails(channelId));
@@ -29,6 +30,16 @@ const Video = ({ video }) => {
     };
     fetchDetails();
   }, [channelId]);
+
+  // UseEffect for Video Details
+  useEffect(() => {
+    const fetchDetails = async () => {
+      const res = await axios.get(getVideoDetails(_videoId));
+      setDuration(res?.data?.items[0]?.contentDetails?.duration);
+      setViewCount(res?.data?.items[0]?.statistics?.viewCount);
+    };
+    fetchDetails();
+  }, []);
 
   return (
     <div className="video">
@@ -43,7 +54,7 @@ const Video = ({ video }) => {
         </button>
       </div>
       <div className="video__info">
-        <Avatar src={channelThumbnail} className="video__avatar" />
+        <Avatar src={channelThumbnail} alt={channelTitle} className="video__avatar" />
         <div className="video__desc">
           <h3 className="video__title">{title}</h3>
           <p className="video__channel">{channelTitle}</p>

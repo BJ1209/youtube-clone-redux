@@ -3,25 +3,25 @@ import CategoriesBar from './CategoriesBar';
 import Video from './Video';
 import axios from '../utils/axios';
 import { getMostPopularVideos } from '../utils/requests';
-import '../css/HomeScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
+import '../css/HomeScreen.css';
 import {
-  selectMostPopularVideos,
+  selectHomeVideos,
   selectPageToken,
-  setMostPopularMovies,
   setPageToken,
+  setHomeVideos,
 } from '../features/videoSlice';
 
 const HomeScreen = () => {
   const dispatch = useDispatch(),
-    videos = useSelector(selectMostPopularVideos),
+    videos = useSelector(selectHomeVideos),
     pageToken = useSelector(selectPageToken);
 
   useEffect(() => {
     const fetchMostPopular = async () => {
       const res = await axios.get(getMostPopularVideos(''));
       dispatch(setPageToken(res.data.nextPageToken));
-      dispatch(setMostPopularMovies(res.data.items));
+      dispatch(setHomeVideos(res.data.items));
     };
     fetchMostPopular();
   }, []);
@@ -31,7 +31,7 @@ const HomeScreen = () => {
       <CategoriesBar />
       <div className="homescreen__videos">
         {videos.map((video) => (
-          <Video key={video.id} video={video} />
+          <Video key={video?.id?.videoId || video.id} video={video} />
         ))}
       </div>
     </>
