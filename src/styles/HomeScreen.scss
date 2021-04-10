@@ -1,6 +1,39 @@
 .homescreen__videos {
+  padding: 1.2em 1.5em;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  padding: 1.2em 1.5em;
+  // .infinite-scroll-component__outerdiv {
+  //   width: 100% !important;
+  //   .infinite-scroll-component {
+  //     width: 100%;
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     gap: 1em;
+  //   }
+  // }
+}
+.spin::before {
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 5px #cfd0d1;
+  border-bottom-color: #1c87c9;
+  border-radius: 50%;
+  content: "";
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
 }

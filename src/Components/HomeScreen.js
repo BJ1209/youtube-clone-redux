@@ -11,29 +11,43 @@ import {
   setPageToken,
   setHomeVideos,
 } from '../features/videoSlice';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const HomeScreen = () => {
   const dispatch = useDispatch(),
     videos = useSelector(selectHomeVideos),
     pageToken = useSelector(selectPageToken);
 
+  const fetchMostPopular = async () => {
+    const res = await axios.get(getMostPopularVideos(pageToken));
+    dispatch(setPageToken(res.data.nextPageToken));
+    dispatch(setHomeVideos(res.data.items));
+  };
+
   useEffect(() => {
-    const fetchMostPopular = async () => {
-      const res = await axios.get(getMostPopularVideos(''));
-      dispatch(setPageToken(res.data.nextPageToken));
-      dispatch(setHomeVideos(res.data.items));
-    };
     fetchMostPopular();
   }, []);
+
+  const fetchData = () => {
+    setTimeout(() => {
+      console.log('asd');
+    }, 1000);
+  };
 
   return (
     <>
       <CategoriesBar />
-      <div className="homescreen__videos">
+      <InfiniteScroll
+        className="homescreen__videos"
+        dataLength={videos.length}
+        next={fetchData}
+        hasMore={true}
+        loader={<div className="spin"></div>}
+      >
         {videos.map((video) => (
           <Video key={video?.id?.videoId || video.id} video={video} />
         ))}
-      </div>
+      </InfiniteScroll>
     </>
   );
 };

@@ -12,3 +12,6 @@
 6. axios
 7. numeral
 8. moment
+9. react-infinite-scroll-component
+10. react-loading-skeleton
+11. react-lazy-load-image-component
