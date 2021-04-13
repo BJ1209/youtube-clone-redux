@@ -5,13 +5,12 @@
 .categoriesBar {
   @include mxn.flex;
   overflow-x: scroll;
-  padding: 0.8em 0;
+  padding: 0.8em 0.5em 0.8em 0;
   border-top: var.$border;
   border-bottom: var.$border;
   background: white;
-  position: sticky;
-  top: 0;
   z-index: 10;
+
   &::-webkit-scrollbar {
     display: none;
   }

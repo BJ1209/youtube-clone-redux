@@ -2,11 +2,13 @@
 @use './mixins' as mxn;
 
 .header {
+  position: sticky;
+  top: 0;
   @include mxn.flex {
     justify-content: space-between;
   }
   padding: 0.2em 0.5em 0;
-  z-index: 3;
+  z-index: 100;
   background-color: clr.$clr-white;
 
   #{&}__icon {

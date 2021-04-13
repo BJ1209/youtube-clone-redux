@@ -1,6 +1,9 @@
 .sidebar {
+  position: sticky;
+  top: 52px;
   width: 220px;
-  height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   padding-right: 0.5em;
 }
 .sidebar > hr {

@@ -17,6 +17,7 @@ const Video = ({ video }) => {
       publishedAt,
     },
   } = video;
+
   const [channelThumbnail, setChannelThumbnail] = useState('');
   const [duration, setDuration] = useState('');
   const [viewCount, setViewCount] = useState('');
@@ -44,7 +45,7 @@ const Video = ({ video }) => {
   return (
     <div className="video">
       <div className="video__container">
-        <img src={medium?.url} alt="Video Poster" className="video__image" />
+        <img src={medium?.url} alt={title} className="video__image" />
         <div className="video__time">{getDuration(duration)}</div>
         <button className="video__btn schedule">
           <Schedule />

@@ -11,7 +11,8 @@ export const videoSlice = createSlice({
 
   reducers: {
     setHomeVideos: (state, action) => {
-      state.videos = action.payload;
+      const videos = [...state.videos, ...action.payload];
+      state.videos = videos;
     },
     setActiveCategory: (state, action) => {
       state.activeCategory = action.payload;

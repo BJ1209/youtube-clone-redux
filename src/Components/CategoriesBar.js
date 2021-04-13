@@ -32,19 +32,16 @@ const CategoriesBar = () => {
   const dispatch = useDispatch();
   const activeCategory = useSelector(selectActiveCategory);
 
-  useEffect(() => {
-    const fetchVideos = async () => {
-      if (activeCategory !== 'All') {
-        const res = await axios.get(getVideosByCategory(activeCategory));
-        dispatch(setHomeVideos(res?.data?.items));
-      } else {
-        const results = await axios.get(getMostPopularVideos(''));
-        dispatch(setPageToken(results.data.nextPageToken));
-        dispatch(setHomeVideos(results.data.items));
-      }
-    };
-    fetchVideos();
-  }, [activeCategory]);
+  // const fetchVideos = async () => {
+  //   if (activeCategory !== 'All') {
+  //     const res = await axios.get(getVideosByCategory(activeCategory));
+  //     dispatch(setHomeVideos(res?.data?.items));
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchVideos();
+  // }, [activeCategory]);
 
   const activeElementHandler = (category) => {
     dispatch(setActiveCategory(category));

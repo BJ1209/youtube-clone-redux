@@ -4,5 +4,7 @@
 .HomeLayout {
   flex: 1;
   background: clr.$clr-layout-body;
-  overflow-y: scroll;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }

@@ -4,12 +4,10 @@
   align-items: center;
   justify-content: stretch;
   overflow-x: scroll;
-  padding: 0.8em 0;
+  padding: 0.8em 0.5em 0.8em 0;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   background: white;
-  position: sticky;
-  top: 0;
   z-index: 10;
 }
 .categoriesBar::-webkit-scrollbar {

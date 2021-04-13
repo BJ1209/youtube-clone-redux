@@ -1,10 +1,7 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   #{&}__body {
-    overflow: hidden;
-    flex: 1;
     display: flex;
   }
 }
