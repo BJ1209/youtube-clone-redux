@@ -1,18 +1,19 @@
 .spinner {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border: solid 5px #cfd0d1;
   border-bottom-color: #222;
   border-radius: 50%;
+  padding: 1.5em;
+  margin: 1.5em auto 0.5em;
   animation: 1s linear infinite spinner;
-  margin: 2.5em auto;
 
   @keyframes spinner {
     0% {
-      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
     }
     100% {
-      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
     }
   }
 }

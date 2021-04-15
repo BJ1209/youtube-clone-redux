@@ -2,8 +2,6 @@
 @use './mixins' as mxn;
 
 .header {
-  position: sticky;
-  top: 0;
   @include mxn.flex {
     justify-content: space-between;
   }

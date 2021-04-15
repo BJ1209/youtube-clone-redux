@@ -4,13 +4,5 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  // .infinite-scroll-component__outerdiv {
-  //   width: 100% !important;
-  //   .infinite-scroll-component {
-  //     width: 100%;
-  //     display: flex;
-  //     flex-wrap: wrap;
-  //     gap: 1em;
-  //   }
-  // }
+  overflow-y: scroll;
 }
