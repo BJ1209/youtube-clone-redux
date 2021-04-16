@@ -5,6 +5,7 @@ import { selectHomeVideos, setPageToken } from '../features/videoSlice';
 import Loader from './Loader';
 import '../css/HomeScreen.css';
 import useFetchVideos from '../hooks/useFetchVideos';
+import HomeSkeleton from '../Skeleton/HomeSkeleton';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,6 @@ const HomeScreen = () => {
 
   const scrollHandler = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-    console.log({ scrollTop, scrollHeight, clientHeight });
     if (scrollHeight - scrollTop === clientHeight) {
       dispatch(setPageToken(page));
     }
@@ -23,9 +23,9 @@ const HomeScreen = () => {
     <>
       <CategoriesBar />
       <div className="homescreen__videos" onScroll={scrollHandler}>
-        {videos.map((video) => (
-          <Video key={video?.id?.videoId || video.id} video={video} />
-        ))}
+        {!loading
+          ? videos.map((video) => <Video key={video?.id?.videoId || video.id} video={video} />)
+          : [...Array(20)].map((_, index) => <HomeSkeleton key={index} />)}
       </div>
       {loading && <Loader />}
     </>

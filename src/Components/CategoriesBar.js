@@ -1,14 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from '../utils/axios';
 import '../css/CategoriesBar.css';
-import { getMostPopularVideos, getVideosByCategory } from '../utils/requests';
+import { getVideosByCategory } from '../utils/requests';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectActiveCategory,
-  setActiveCategory,
-  setHomeVideos,
-  setPageToken,
-} from '../features/videoSlice';
+import { selectActiveCategory, setActiveCategory, setHomeVideos } from '../features/videoSlice';
 
 const categories = [
   'All',
@@ -24,7 +19,6 @@ const categories = [
   'Crypto Currency',
   'Machine Learning',
   'Websites',
-  'conversations',
   'BasketBall',
 ];
 
@@ -32,16 +26,20 @@ const CategoriesBar = () => {
   const dispatch = useDispatch();
   const activeCategory = useSelector(selectActiveCategory);
 
-  // const fetchVideos = async () => {
-  //   if (activeCategory !== 'All') {
-  //     const res = await axios.get(getVideosByCategory(activeCategory));
-  //     dispatch(setHomeVideos(res?.data?.items));
-  //   }
-  // };
+  const fetchVideos = async () => {
+    try {
+      if (activeCategory !== 'All') {
+        const res = await axios.get(getVideosByCategory(activeCategory));
+        dispatch(setHomeVideos(res?.data?.items));
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchVideos();
-  // }, [activeCategory]);
+  useEffect(() => {
+    fetchVideos();
+  }, [activeCategory]);
 
   const activeElementHandler = (category) => {
     dispatch(setActiveCategory(category));

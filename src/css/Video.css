@@ -90,6 +90,9 @@
 }
 .video .video__avatar {
   margin-right: 0.5em;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 .video .video__desc h3 {
   font-weight: 500;
