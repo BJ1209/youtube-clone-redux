@@ -1,14 +1,14 @@
-import Header from '../Components/Header';
-import HomeLayout from '../Components/HomeLayout';
-import HomeScreen from '../Components/HomeScreen';
-import Sidebar from '../Components/Sidebar';
-import Login from '../Components/Login';
-
-import { Redirect, Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
 import { auth } from '../config/firebase';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from '../features/userSlice';
+
+import Header from '../Components/Header';
+import Sidebar from '../Components/Sidebar';
+import Login from '../Components/Login';
+import WatchScreen from '../Screens/WatchScreen';
+import HomeScreen from '../Screens/HomeScreen.jsx';
 import '../css/App.css';
 
 function App() {
@@ -37,14 +37,13 @@ function App() {
             <Sidebar />
             <Switch>
               <Route path="/search/:searchId">
-                <HomeLayout>
-                  <h1>Search Results</h1>
-                </HomeLayout>
+                <h1>Search Results</h1>
+              </Route>
+              <Route path="/watch/:id">
+                <WatchScreen />
               </Route>
               <Route exact path="/">
-                <HomeLayout>
-                  <HomeScreen />
-                </HomeLayout>
+                <HomeScreen />
               </Route>
               <Route>
                 <Redirect to="/" />

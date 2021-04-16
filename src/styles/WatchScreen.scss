@@ -1,0 +1,26 @@
+@use './colors' as clr;
+@use './variables' as var;
+
+.watchscreen {
+  flex: 1;
+  background: clr.$clr-layout-body;
+  overflow: auto;
+  display: flex;
+  padding: var.$main-padding;
+
+  // for safari and other browsers
+  & > * + * {
+    margin-left: 1.5em;
+  }
+
+  #{&}__left {
+    flex: 0.7;
+  }
+  #{&}__player {
+    background-color: #353946;
+    height: 70vh;
+  }
+  #{&}__right {
+    flex: 0.3;
+  }
+}

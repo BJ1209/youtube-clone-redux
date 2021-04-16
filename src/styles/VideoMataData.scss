@@ -1,0 +1,77 @@
+@use './mixins' as mxn;
+.videoMetaData {
+  margin-top: 2em;
+  #{&}__top {
+    margin-bottom: 0.2em;
+  }
+  #{&}__title {
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+  #{&}__stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #{&}__left {
+    color: rgb(92, 92, 92);
+  }
+  #{&}__like {
+    margin-right: 0.5em;
+  }
+  #{&}__channel {
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    padding: 0.5em 0;
+    display: flex;
+    align-items: center;
+  }
+  #{&}__channelDetails {
+    margin-left: 1em;
+    flex: 1;
+  }
+  #{&}__channelTitle {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.2em;
+  }
+  #{&}__channelSubscribers {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(92, 92, 92);
+  }
+  #{&}__btn {
+    @include mxn.btn;
+    color: white;
+    background: #c00;
+    text-transform: uppercase;
+    padding: 0.8em;
+    letter-spacing: 1px;
+    font-weight: 500;
+    border-radius: 2px;
+  }
+  #{&}__description {
+    width: 85%;
+    padding: 0.5em 0;
+    p {
+      width: 85ch;
+      line-height: 160%;
+      font-size: 0.95rem;
+      white-space: pre-line;
+      height: 75px;
+      overflow: hidden;
+
+      &.show_more {
+        height: 100%;
+      }
+    }
+    button {
+      @include mxn.btn;
+      text-transform: uppercase;
+      color: rgb(150, 150, 150);
+      padding: 0.35em 0;
+      background: transparent;
+      font-weight: 700;
+    }
+  }
+}

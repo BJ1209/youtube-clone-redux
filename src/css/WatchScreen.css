@@ -1,0 +1,22 @@
+.watchscreen {
+  flex: 1;
+  background: #f9f9f9;
+  overflow: auto;
+  display: flex;
+  padding: 1.2em 1.5em;
+}
+.watchscreen > * + * {
+  margin-left: 1.5em;
+}
+.watchscreen .watchscreen__left {
+  flex: 0.7;
+}
+.watchscreen .watchscreen__player {
+  background-color: #353946;
+  height: 70vh;
+}
+.watchscreen .watchscreen__right {
+  flex: 0.3;
+}
+
+/*# sourceMappingURL=WatchScreen.css.map */

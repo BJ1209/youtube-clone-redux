@@ -32,3 +32,9 @@
     transform: translateY($y) translateX($x) scaleX(1);
   }
 }
+
+@mixin btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

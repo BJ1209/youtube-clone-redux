@@ -1,8 +1,8 @@
-import CategoriesBar from './CategoriesBar';
-import Video from './Video';
+import CategoriesBar from '../Components/CategoriesBar';
+import Video from '../Components/Video';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectHomeVideos, setPageToken } from '../features/videoSlice';
-import Loader from './Loader';
+import Loader from '../Components/Loader';
 import '../css/HomeScreen.css';
 import useFetchVideos from '../hooks/useFetchVideos';
 import HomeSkeleton from '../Skeleton/HomeSkeleton';
@@ -20,15 +20,15 @@ const HomeScreen = () => {
   };
 
   return (
-    <>
+    <div className="homescreen">
       <CategoriesBar />
       <div className="homescreen__videos" onScroll={scrollHandler}>
-        {!loading
+        {videos.length !== 0
           ? videos.map((video) => <Video key={video?.id?.videoId || video.id} video={video} />)
           : [...Array(20)].map((_, index) => <HomeSkeleton key={index} />)}
       </div>
       {loading && <Loader />}
-    </>
+    </div>
   );
 };
 

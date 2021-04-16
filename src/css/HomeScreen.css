@@ -1,4 +1,11 @@
-.homescreen__videos {
+.homescreen {
+  flex: 1;
+  background: #f9f9f9;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.homescreen .homescreen__videos {
   padding: 1.2em 1.5em;
   width: 100%;
   display: flex;

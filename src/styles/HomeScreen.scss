@@ -1,8 +1,19 @@
-.homescreen__videos {
-  padding: 1.2em 1.5em;
-  width: 100%;
+@use './colors' as clr;
+@use './variables' as var;
+
+.homescreen {
+  flex: 1;
+  background: clr.$clr-layout-body;
+  overflow: auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  overflow-y: scroll;
+  flex-direction: column;
+
+  #{&}__videos {
+    padding: var.$main-padding;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    overflow-y: scroll;
+  }
 }

@@ -1,0 +1,81 @@
+.videoMetaData {
+  margin-top: 2em;
+}
+.videoMetaData .videoMetaData__top {
+  margin-bottom: 0.2em;
+}
+.videoMetaData .videoMetaData__title {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.videoMetaData .videoMetaData__stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.videoMetaData .videoMetaData__left {
+  color: #5c5c5c;
+}
+.videoMetaData .videoMetaData__like {
+  margin-right: 0.5em;
+}
+.videoMetaData .videoMetaData__channel {
+  border-top: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+  padding: 0.5em 0;
+  display: flex;
+  align-items: center;
+}
+.videoMetaData .videoMetaData__channelDetails {
+  margin-left: 1em;
+  flex: 1;
+}
+.videoMetaData .videoMetaData__channelTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.2em;
+}
+.videoMetaData .videoMetaData__channelSubscribers {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5c5c5c;
+}
+.videoMetaData .videoMetaData__btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: #c00;
+  text-transform: uppercase;
+  padding: 0.8em;
+  letter-spacing: 1px;
+  font-weight: 500;
+  border-radius: 2px;
+}
+.videoMetaData .videoMetaData__description {
+  width: 85%;
+  padding: 0.5em 0;
+}
+.videoMetaData .videoMetaData__description p {
+  width: 85ch;
+  line-height: 160%;
+  font-size: 0.95rem;
+  white-space: pre-line;
+  height: 75px;
+  overflow: hidden;
+}
+.videoMetaData .videoMetaData__description p.show_more {
+  height: 100%;
+}
+.videoMetaData .videoMetaData__description button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #969696;
+  padding: 0.35em 0;
+  background: transparent;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=VideoMataData.css.map */
