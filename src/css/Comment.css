@@ -1,0 +1,23 @@
+.comment {
+  display: flex;
+}
+.comment .comment__details {
+  margin-left: 1em;
+}
+.comment .comment__top {
+  margin-bottom: 0.5em;
+}
+.comment .comment__name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-right: 0.5em;
+}
+.comment .comment__timestamp {
+  opacity: 0.65;
+  font-size: 0.85rem;
+}
+.comment .comment__description {
+  font-size: 0.95rem;
+}
+
+/*# sourceMappingURL=Comment.css.map */

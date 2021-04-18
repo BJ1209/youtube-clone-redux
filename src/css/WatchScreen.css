@@ -18,5 +18,8 @@
 .watchscreen .watchscreen__right {
   flex: 0.3;
 }
+.watchscreen .watchscreen__right > * + * {
+  margin-top: 0.8em;
+}
 
 /*# sourceMappingURL=WatchScreen.css.map */

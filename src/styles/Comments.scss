@@ -1,0 +1,53 @@
+@use './mixins' as mxn;
+@use './colors' as clr;
+@use './variables' as var;
+
+.comments {
+  padding: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  #{&}__number {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  #{&}__form {
+    margin: 0.5em 0 1em;
+    display: flex;
+    align-items: center;
+    & > * + * {
+      margin-left: 1em;
+    }
+  }
+  #{&}__textInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: clr.$clr-layout-body;
+    border-bottom: 1px solid lightgray;
+    padding: 0.5em;
+  }
+  #{&}__btn {
+    @include mxn.btn;
+    background: transparent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: rgb(85, 85, 85);
+    font-weight: 500;
+    padding: var.$btn-padding;
+    border-radius: var.$btn-border-radius;
+    &:last-of-type {
+      background: #065fd4;
+      color: #fff;
+      &:disabled {
+        background: rgb(170, 170, 170);
+      }
+    }
+  }
+  #{&}__comments {
+    & > * + * {
+      margin-top: 1em;
+    }
+  }
+}

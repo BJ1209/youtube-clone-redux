@@ -1,6 +1,7 @@
 @use './mixins' as mxn;
+
 .videoMetaData {
-  margin-top: 2em;
+  margin-top: 1em;
   #{&}__top {
     margin-bottom: 0.2em;
   }
@@ -46,19 +47,19 @@
     background: #c00;
     text-transform: uppercase;
     padding: 0.8em;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-weight: 500;
     border-radius: 2px;
   }
   #{&}__description {
-    width: 85%;
     padding: 0.5em 0;
+    border-bottom: 2px solid lightgray;
     p {
       width: 85ch;
       line-height: 160%;
       font-size: 0.95rem;
       white-space: pre-line;
-      height: 75px;
+      height: 74px;
       overflow: hidden;
 
       &.show_more {

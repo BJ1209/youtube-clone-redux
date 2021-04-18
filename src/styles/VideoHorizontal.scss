@@ -1,0 +1,53 @@
+.videoHorizontal {
+  display: flex;
+  #{&}__video {
+    position: relative;
+    margin-right: 0.5em;
+    width: 170px;
+    height: 100px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    span {
+      position: absolute;
+      z-index: 10;
+      bottom: 5px;
+      right: 5px;
+      font-size: 0.85rem;
+      background: rgba($color: #000000, $alpha: 0.75);
+      color: white;
+      font-weight: 700;
+      padding: 0.2em 0.3em 0.3em;
+      border-radius: 3px;
+    }
+  }
+  #{&}__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+  #{&}__channel {
+    display: flex;
+    align-items: center;
+    p {
+      color: gray;
+      margin-right: 0.3em;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    svg {
+      color: gray;
+      height: 0.75em;
+      padding-top: 0.1em;
+    }
+  }
+  #{&}__stats {
+    display: flex;
+    font-size: 0.85rem;
+    color: gray;
+    & > * + * {
+      margin-left: 0.25em;
+    }
+  }
+}

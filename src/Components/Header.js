@@ -11,7 +11,6 @@ import { selectUser } from '../features/userSlice';
 const Header = () => {
   const [input, setInput] = useState('');
   const user = useSelector(selectUser);
-
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -58,7 +57,7 @@ const Header = () => {
             <MoreVert className="header__icon" />
           </IconButton>
         )}
-        {user && <Avatar className="header__avatar" />}
+        {user && <Avatar src={user?.photoURL} className="header__avatar" />}
       </div>
     </header>
   );

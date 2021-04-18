@@ -1,0 +1,55 @@
+.videoHorizontal {
+  display: flex;
+}
+.videoHorizontal .videoHorizontal__video {
+  position: relative;
+  margin-right: 0.5em;
+  width: 170px;
+  height: 100px;
+}
+.videoHorizontal .videoHorizontal__video img {
+  width: 100%;
+  height: 100%;
+}
+.videoHorizontal .videoHorizontal__video span {
+  position: absolute;
+  z-index: 10;
+  bottom: 5px;
+  right: 5px;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-weight: 700;
+  padding: 0.2em 0.3em 0.3em;
+  border-radius: 3px;
+}
+.videoHorizontal .videoHorizontal__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.videoHorizontal .videoHorizontal__channel {
+  display: flex;
+  align-items: center;
+}
+.videoHorizontal .videoHorizontal__channel p {
+  color: gray;
+  margin-right: 0.3em;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.videoHorizontal .videoHorizontal__channel svg {
+  color: gray;
+  height: 0.75em;
+  padding-top: 0.1em;
+}
+.videoHorizontal .videoHorizontal__stats {
+  display: flex;
+  font-size: 0.85rem;
+  color: gray;
+}
+.videoHorizontal .videoHorizontal__stats > * + * {
+  margin-left: 0.25em;
+}
+
+/*# sourceMappingURL=VideoHorizontal.css.map */

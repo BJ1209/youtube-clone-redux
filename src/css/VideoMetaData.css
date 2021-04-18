@@ -1,5 +1,5 @@
 .videoMetaData {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .videoMetaData .videoMetaData__top {
   margin-bottom: 0.2em;
@@ -48,20 +48,20 @@
   background: #c00;
   text-transform: uppercase;
   padding: 0.8em;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-weight: 500;
   border-radius: 2px;
 }
 .videoMetaData .videoMetaData__description {
-  width: 85%;
   padding: 0.5em 0;
+  border-bottom: 2px solid lightgray;
 }
 .videoMetaData .videoMetaData__description p {
   width: 85ch;
   line-height: 160%;
   font-size: 0.95rem;
   white-space: pre-line;
-  height: 75px;
+  height: 74px;
   overflow: hidden;
 }
 .videoMetaData .videoMetaData__description p.show_more {
@@ -78,4 +78,4 @@
   font-weight: 700;
 }
 
-/*# sourceMappingURL=VideoMataData.css.map */
+/*# sourceMappingURL=VideoMetaData.css.map */

@@ -1,7 +1,7 @@
 import { Avatar, IconButton } from '@material-ui/core';
 import { ThumbDown, ThumbUp } from '@material-ui/icons';
 import { useState } from 'react';
-import '../css/VideoMataData.css';
+import '../css/VideoMetaData.css';
 
 const VideoMetaData = () => {
   const text = `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem dignissimos aperiam
