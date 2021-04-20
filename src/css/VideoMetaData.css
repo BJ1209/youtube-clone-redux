@@ -6,7 +6,7 @@
 }
 .videoMetaData .videoMetaData__title {
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 .videoMetaData .videoMetaData__stats {
   display: flex;
@@ -15,6 +15,9 @@
 }
 .videoMetaData .videoMetaData__left {
   color: #5c5c5c;
+}
+.videoMetaData .videoMetaData__left > * + * {
+  margin-left: 0.25em;
 }
 .videoMetaData .videoMetaData__like {
   margin-right: 0.5em;
@@ -37,7 +40,7 @@
 }
 .videoMetaData .videoMetaData__channelSubscribers {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #5c5c5c;
 }
 .videoMetaData .videoMetaData__btn {

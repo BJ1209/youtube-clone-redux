@@ -1,10 +1,11 @@
 import { CheckCircle } from '@material-ui/icons';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import '../css/VideoHorizontal.css';
 const VideoHorizontal = () => {
   return (
     <div className="videoHorizontal">
       <div className="videoHorizontal__video">
-        <img src="https://material-ui.com/static/ads-in-house/divjoy.png" alt="" />
+        <LazyLoadImage src="https://material-ui.com/static/ads-in-house/divjoy.png" alt="" />
         <span className="videoHorizontal__duration">28:20</span>
       </div>
       <div className="videoHorizontal__details">

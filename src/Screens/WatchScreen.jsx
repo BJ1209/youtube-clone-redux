@@ -1,25 +1,51 @@
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
 import Comments from '../Components/Comments';
 import VideoHorizontal from '../Components/VideoHorizontal';
 import VideoMetaData from '../Components/VideoMetaData';
+import axios from '../utils/axios';
 import '../css/WatchScreen.css';
+import { getVideoDetails } from '../utils/requests';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectLoading, selectVideo, setLoading, setVideo } from '../features/selectedVideoSlice';
 const WatchScreen = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get(getVideoDetails(id));
+        dispatch(setVideo(data?.items[0]));
+        dispatch(setLoading(false));
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const video = useSelector(selectVideo);
+  const loading = useSelector(selectLoading);
+
   return (
     <div className="watchscreen">
       <div className="watchscreen__left">
         <div className="watchscreen__player">
           <iframe
-            src="https://www.youtube.com/embed/1Gfa471nVPU"
-            title="video"
+            src={`https://www.youtube.com/embed/${id}`}
+            title={video?.snippet?.title}
             allowFullScreen
             width="100%"
             height="100%"
           ></iframe>
         </div>
-        <VideoMetaData />
+        {!loading ? <VideoMetaData video={video} /> : <h3>loading</h3>}
         <Comments />
       </div>
       <div className="watchscreen__right">
-        {[...Array(10)].map((_, index) => (
+        {[...Array(20)].map((_, index) => (
           <VideoHorizontal key={index} />
         ))}
       </div>

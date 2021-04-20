@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Avatar, IconButton } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import { Apps, Menu, MoreVert, Notifications, Search, VideoCall } from '@material-ui/icons';
 
 import { ReactComponent as YouTubeLogo } from '../Assets/logo/youtube-full.svg';
 import '../css/Header.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
+import Avatar from './Avatar';
 
 const Header = () => {
   const [input, setInput] = useState('');
@@ -57,7 +58,7 @@ const Header = () => {
             <MoreVert className="header__icon" />
           </IconButton>
         )}
-        {user && <Avatar src={user?.photoURL} className="header__avatar" />}
+        {user && <Avatar src={user?.photoURL} />}
       </div>
     </header>
   );

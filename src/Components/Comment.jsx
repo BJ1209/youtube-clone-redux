@@ -1,9 +1,9 @@
-import { Avatar } from '@material-ui/core';
 import '../css/Comment.css';
+import Avatar from './Avatar';
 const Comment = () => {
   return (
     <div className="comment">
-      <Avatar className="comment__avatar" />
+      <Avatar src="https://material-ui.com/static/ads-in-house/divjoy.png" />
       <div className="comment__details">
         <div className="comment__top">
           <span className="comment__name">asdfghjkl</span>

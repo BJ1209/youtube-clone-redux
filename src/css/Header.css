@@ -74,10 +74,6 @@
 .header .header__right.user .header__icon {
   margin-right: 0;
 }
-.header .header__right .header__avatar {
-  height: 1.5em !important;
-  width: 1.5em !important;
-}
 .header .header__button {
   margin-right: 0.5em;
   display: flex;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Avatar } from '@material-ui/core';
 import Comment from './Comment';
+import Avatar from './Avatar';
 import '../css/Comments.css';
 const Comments = () => {
   const [input, setInput] = useState('');
@@ -13,7 +13,7 @@ const Comments = () => {
         <span className="number">150</span> Comments
       </p>
       <form className="comments__form" onSubmit={submitHandler}>
-        <Avatar className="comments__avatar" />
+        <Avatar src="https://material-ui.com/static/ads-in-house/divjoy.png" />
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}

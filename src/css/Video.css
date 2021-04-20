@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .video {
   width: 296px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
 }
@@ -87,12 +88,6 @@
 .video .video__info {
   display: flex;
   padding: 0.5em;
-}
-.video .video__avatar {
-  margin-right: 0.5em;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
 }
 .video .video__desc h3 {
   font-weight: 500;

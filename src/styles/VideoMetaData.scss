@@ -7,7 +7,7 @@
   }
   #{&}__title {
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   #{&}__stats {
     display: flex;
@@ -16,6 +16,9 @@
   }
   #{&}__left {
     color: rgb(92, 92, 92);
+    & > * + * {
+      margin-left: 0.25em;
+    }
   }
   #{&}__like {
     margin-right: 0.5em;
@@ -38,7 +41,7 @@
   }
   #{&}__channelSubscribers {
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 400;
     color: rgb(92, 92, 92);
   }
   #{&}__btn {

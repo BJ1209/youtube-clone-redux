@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from '../utils/axios';
-import { Avatar } from '@material-ui/core';
 import { QueueMusic, Schedule } from '@material-ui/icons';
-import { getDuration, getPublishedDate, getViewCount } from '../utils/basicFunctions';
+import { getCount, getDuration, getPublishedDate } from '../utils/basicFunctions';
 import { getChannelDetails, getVideoDetails } from '../utils/requests';
 import '../css/Video.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useHistory } from 'react-router';
+import Avatar from './Avatar';
 
 const Video = ({ video }) => {
   const {
@@ -23,7 +24,7 @@ const Video = ({ video }) => {
   const [duration, setDuration] = useState('');
   const [viewCount, setViewCount] = useState('');
   const _videoId = id?.videoId || id;
-
+  const history = useHistory();
   // UseEffect For getting the Channel Thumbnail for each video
   useEffect(() => {
     const fetchDetails = async () => {
@@ -52,7 +53,7 @@ const Video = ({ video }) => {
   }, []);
 
   return (
-    <div className="video">
+    <div className="video" onClick={() => history.push(`watch/${_videoId}`)}>
       <div className="video__container">
         <LazyLoadImage src={medium?.url} alt={title} className="video__image" />
         <div className="video__time">{getDuration(duration)}</div>
@@ -64,12 +65,12 @@ const Video = ({ video }) => {
         </button>
       </div>
       <div className="video__info">
-        <LazyLoadImage src={channelThumbnail} alt={channelTitle} className="video__avatar" />
+        <Avatar style={{ marginRight: '0.5em' }} src={channelThumbnail} alt={channelTitle} />
         <div className="video__desc">
           <h3 className="video__title">{title}</h3>
           <p className="video__channel">{channelTitle}</p>
           <p>
-            <span className="video__views">{getViewCount(viewCount)} views</span>
+            <span className="video__views">{getCount(viewCount)} views</span>
             <span className="video__timestamp">{getPublishedDate(publishedAt)}</span>
           </p>
         </div>

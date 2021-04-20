@@ -2,6 +2,7 @@
 
 .video {
   width: 296px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   &:hover {
@@ -55,12 +56,6 @@
   #{&}__info {
     display: flex;
     padding: 0.5em;
-  }
-  #{&}__avatar {
-    margin-right: 0.5em;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
   }
   #{&}__desc {
     h3 {
