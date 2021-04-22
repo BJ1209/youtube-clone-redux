@@ -7,9 +7,13 @@ const Login = () => {
   const loginHandler = () => {
     auth
       .signInWithPopup(googleProvider)
-      .then((user) => user)
+      .then((user) => {
+        const accessToken = user?.credential?.accessToken;
+        localStorage.setItem('accessToken', accessToken);
+      })
       .catch((err) => alert(err.message));
   };
+
   return (
     <div className="login">
       <div className="login__container">

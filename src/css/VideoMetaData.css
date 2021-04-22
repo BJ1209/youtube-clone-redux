@@ -55,6 +55,10 @@
   font-weight: 500;
   border-radius: 2px;
 }
+.videoMetaData .videoMetaData__btn.subscribed {
+  background: #c8c8c8;
+  color: #333;
+}
 .videoMetaData .videoMetaData__description {
   padding: 0.5em 0;
   border-bottom: 2px solid lightgray;

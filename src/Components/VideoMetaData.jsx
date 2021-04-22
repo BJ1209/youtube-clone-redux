@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ThumbDown, ThumbUp } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import { getCount, getPublishedDate } from '../utils/basicFunctions';
-import { setChannel, setLoading } from '../features/channelSlice';
+import {
+  selectSubscriptionStatus,
+  setChannel,
+  setLoading,
+  setSubscriptionStatus,
+} from '../features/channelSlice';
 import Avatar from './Avatar';
 import axios from '../utils/axios';
 import { getChannelDetails } from '../utils/requests';
@@ -14,11 +19,14 @@ const VideoMetaData = ({ video }) => {
   const [show, setShow] = useState(true);
   const [subscribers, setSubscribers] = useState('');
   const [thumbnail, setThumbnail] = useState('');
+
+  const subscribed = useSelector(selectSubscriptionStatus);
   const {
     snippet: { title, description, publishedAt, channelId, channelTitle },
     statistics: { viewCount, likeCount, dislikeCount },
   } = video;
 
+  // Using useEffect for fetching data for the channelDetails
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -34,6 +42,28 @@ const VideoMetaData = ({ video }) => {
     };
     fetchData();
   }, []);
+
+  // useEffect for the subscription status
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios('/subscriptions', {
+          params: {
+            part: 'snippet',
+            forChannelId: channelId,
+            mine: true,
+          },
+          headers: {
+            Authorization: `Bearer ${localStorage.accessToken}`,
+          },
+        });
+        dispatch(setSubscriptionStatus(res?.data?.items?.length > 0 ? true : false));
+      } catch (error) {
+        return null;
+      }
+    };
+    fetchData();
+  });
 
   return (
     <div className="videoMetaData">
@@ -67,7 +97,11 @@ const VideoMetaData = ({ video }) => {
           <h4 className="videoMetaData__channelTitle">{channelTitle}</h4>
           <p className="videoMetaData__channelSubscribers">{getCount(subscribers)} subscribers</p>
         </div>
-        <button className="videoMetaData__btn">Subscribe</button>
+        {subscribed ? (
+          <button className="videoMetaData__btn subscribed">Subscribed</button>
+        ) : (
+          <button className="videoMetaData__btn">Subscribe</button>
+        )}
       </div>
       <div className="videoMetaData__description">
         <p className={`${show ? '' : 'show_more'}`}>{description}</p>

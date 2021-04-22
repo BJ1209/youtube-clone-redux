@@ -8,6 +8,7 @@ import '../css/Header.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import Avatar from './Avatar';
+import { auth } from '../config/firebase';
 
 const Header = () => {
   const [input, setInput] = useState('');
@@ -58,7 +59,16 @@ const Header = () => {
             <MoreVert className="header__icon" />
           </IconButton>
         )}
-        {user && <Avatar src={user?.photoURL} />}
+        {user && (
+          <Avatar
+            src={user?.photoURL}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              auth.signOut();
+              localStorage.clear();
+            }}
+          />
+        )}
       </div>
     </header>
   );
