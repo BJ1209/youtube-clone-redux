@@ -8,4 +8,6 @@ export const getVideoDetails = (videoId) =>
   `/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}`;
 
 export const getVideosByCategory = (category) =>
-  `/search?part=snippet&maxResults=20&q=${category}&type=video`;
+  `/search?part=snippet&maxResults=32&q=${category}&type=video`;
+
+export const getCommentsByVideoId = (videoId) => `/commentThreads?part=snippet&videoId=${videoId}`;

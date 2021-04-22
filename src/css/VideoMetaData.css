@@ -58,6 +58,7 @@
 .videoMetaData .videoMetaData__btn.subscribed {
   background: #c8c8c8;
   color: #333;
+  opacity: 0.75;
 }
 .videoMetaData .videoMetaData__description {
   padding: 0.5em 0;

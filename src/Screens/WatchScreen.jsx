@@ -11,6 +11,8 @@ import { selectLoading, selectVideo, setLoading, setVideo } from '../features/se
 const WatchScreen = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const video = useSelector(selectVideo);
+  const loading = useSelector(selectLoading);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,9 +28,6 @@ const WatchScreen = () => {
     fetchData();
   }, []);
 
-  const video = useSelector(selectVideo);
-  const loading = useSelector(selectLoading);
-
   return (
     <div className="watchscreen">
       <div className="watchscreen__left">
@@ -42,7 +41,7 @@ const WatchScreen = () => {
           ></iframe>
         </div>
         {!loading ? <VideoMetaData video={video} /> : <h3>loading</h3>}
-        <Comments />
+        <Comments videoId={id} />
       </div>
       <div className="watchscreen__right">
         {[...Array(20)].map((_, index) => (

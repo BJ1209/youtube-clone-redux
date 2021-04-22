@@ -1,18 +1,17 @@
 import '../css/Comment.css';
+import { getPublishedDate } from '../utils/basicFunctions';
 import Avatar from './Avatar';
-const Comment = () => {
+const Comment = ({ comment }) => {
+  const { textOriginal, authorDisplayName, authorProfileImageUrl, publishedAt } = comment;
   return (
     <div className="comment">
-      <Avatar src="https://material-ui.com/static/ads-in-house/divjoy.png" />
+      <Avatar src={authorProfileImageUrl} />
       <div className="comment__details">
         <div className="comment__top">
-          <span className="comment__name">asdfghjkl</span>
-          <span className="comment__timestamp">2 months ago</span>
+          <span className="comment__name">{authorDisplayName}</span>
+          <span className="comment__timestamp">{getPublishedDate(publishedAt)}</span>
         </div>
-        <div className="comment__description">
-          I bet the future code learners won't have issues finding the greatest resources on the
-          internet.
-        </div>
+        <p className="comment__description">{textOriginal}</p>
       </div>
     </div>
   );
