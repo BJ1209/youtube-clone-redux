@@ -4,6 +4,7 @@ import videoReducer from '../features/videoSlice';
 import selectedVideoReducer from '../features/selectedVideoSlice';
 import channelReducer from '../features/channelSlice';
 import commentsReducer from '../features/commentsSlice';
+import playlistsReducer from '../features/playlistSlice';
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     selectedVideo: selectedVideoReducer,
     channel: channelReducer,
     comments: commentsReducer,
+    playlists: playlistsReducer,
   },
 });

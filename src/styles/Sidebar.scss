@@ -1,14 +1,21 @@
+@use './mixins' as mxn;
+
 .sidebar {
   width: 220px;
   padding-right: 0.5em;
+  overflow-y: scroll;
+  @include mxn.scrollbarFunctionality;
   & > hr {
     height: 1px;
     border: 0;
     background-color: lightgray;
     margin: 0.5em 0;
   }
-  & > p {
-    padding: 0.5em 1.5em;
-    font-size: 0.9rem;
+  & > h4 {
+    padding: 0.5em 1.4em;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 }

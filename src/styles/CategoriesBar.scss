@@ -10,13 +10,7 @@
   background: white;
   z-index: 10;
   overflow-x: scroll;
-
-  // Retaining the scrolling functionality without the scroll-bars
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  @include mxn.scrollbarFunctionality;
 
   button {
     margin-left: 0.6em;

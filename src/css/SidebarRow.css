@@ -22,6 +22,11 @@
   color: #030303;
   font-weight: 700;
 }
+.sidebarRow.playlist .sidebarRow__title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+}
 .sidebarRow svg {
   fill: #606060;
   margin-right: 0.9em;

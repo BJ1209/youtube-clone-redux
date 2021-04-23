@@ -25,6 +25,13 @@
       font-weight: 700;
     }
   }
+  &.playlist {
+    .sidebarRow__title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #000;
+    }
+  }
   svg {
     fill: clr.$clr-sbr-icon;
     margin-right: 0.9em;
