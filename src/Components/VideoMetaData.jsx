@@ -17,7 +17,7 @@ import '../css/VideoMetaData.css';
 const VideoMetaData = ({ video }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(true);
-  const [subscribers, setSubscribers] = useState('');
+  const [subscribers, setSubscribers] = useState(0);
   const [thumbnail, setThumbnail] = useState('');
 
   const subscribed = useSelector(selectSubscriptionStatus);

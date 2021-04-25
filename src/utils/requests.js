@@ -11,3 +11,6 @@ export const getVideosByCategory = (category) =>
   `/search?part=snippet&maxResults=32&q=${category}&type=video`;
 
 export const getCommentsByVideoId = (videoId) => `/commentThreads?part=snippet&videoId=${videoId}`;
+
+export const getRelatedVideosById = (videoId) =>
+  `/search?part=snippet&maxResults=15&relatedToVideoId=${videoId}&type=video`;

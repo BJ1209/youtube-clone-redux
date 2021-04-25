@@ -2,16 +2,26 @@ import '../css/Login.css';
 import { ReactComponent as YouTubeLogo } from '../Assets/logo/youtube.svg';
 import { ReactComponent as GoogleLogo } from '../Assets/logo/google.svg';
 import { auth, googleProvider } from '../config/firebase';
+import { useDispatch } from 'react-redux';
+import { setError } from '../features/userSlice';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const loginHandler = () => {
-    auth
-      .signInWithPopup(googleProvider)
-      .then((user) => {
-        const accessToken = user?.credential?.accessToken;
-        localStorage.setItem('accessToken', accessToken);
-      })
-      .catch((err) => alert(err.message));
+    try {
+      auth
+        .signInWithPopup(googleProvider)
+        .then((user) => {
+          const accessToken = user?.credential?.accessToken;
+          localStorage.setItem('accessToken', accessToken);
+        })
+        .catch((err) => {
+          alert(err.message);
+          setError(err);
+        });
+    } catch (error) {
+      dispatch(setError(error));
+    }
   };
 
   return (

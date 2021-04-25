@@ -4,11 +4,25 @@ import axios from '../utils/axios';
 import '../css/Sidebar.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { History, Home, Subscriptions, VideoLibrary, Whatshot } from '@material-ui/icons';
-import { selectPlaylists, setLoading, setPlaylists } from '../features/playlistSlice';
+import {
+  History,
+  Home,
+  PlaylistPlay,
+  Subscriptions,
+  VideoLibrary,
+  Whatshot,
+} from '@material-ui/icons';
+import { selectPlaylists, setPlaylists } from '../features/playlistSlice';
+import {
+  selectLoading,
+  selectSubscriptions,
+  setLoading,
+  setSubscriptions,
+} from '../features/subscriptionSlice';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,11 +45,37 @@ const Sidebar = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios('/subscriptions', {
+          params: {
+            part: 'snippet,contentDetails',
+            mine: true,
+            maxResults: 20,
+          },
+          headers: {
+            Authorization: `Bearer ${localStorage?.accessToken}`,
+          },
+        });
+        dispatch(setSubscriptions(data?.items));
+        dispatch(setLoading(false));
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+
   const playlists = useSelector(selectPlaylists)?.map((playlist) => (
+    <SidebarRow key={playlist?.id} Icon={<PlaylistPlay />} title={playlist?.snippet?.title} />
+  ));
+
+  const subscriptions = useSelector(selectSubscriptions)?.map((item) => (
     <SidebarRow
-      key={playlist?.id}
-      src={playlist?.snippet?.thumbnails?.medium?.url}
-      title={playlist?.snippet?.title}
+      key={item?.id}
+      src={item?.snippet?.thumbnails?.medium?.url}
+      title={item?.snippet?.title}
     />
   ));
 
@@ -49,6 +89,9 @@ const Sidebar = () => {
       <SidebarRow title="History" Icon={<History />} />
       <hr />
       <h4>Subscriptions</h4>
+      {subscriptions}
+      <hr />
+      <h4>Playlists</h4>
       {playlists}
     </aside>
   );

@@ -7,6 +7,6 @@ export const getDuration = (time) => {
   return duration;
 };
 
-export const getCount = (views) => numeral(views).format('0.0a');
+export const getCount = (views) => numeral(views).format('0.00a');
 
 export const getPublishedDate = (date) => moment(date).fromNow();

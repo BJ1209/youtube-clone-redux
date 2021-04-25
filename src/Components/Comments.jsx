@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../css/Comments.css';
 import { selectComments, setComments, setNextPageToken } from '../features/commentsSlice';
 import { selectUser } from '../features/userSlice';
+import { getCount } from '../utils/basicFunctions';
 
-const Comments = ({ videoId }) => {
+const Comments = ({ videoId, commentCount }) => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
   const submitHandler = (e) => {
@@ -28,15 +29,13 @@ const Comments = ({ videoId }) => {
     fetchData();
   }, [videoId]);
 
-  const _comments = useSelector(selectComments)?.map(
-    (comment) => comment.snippet.topLevelComment.snippet
-  );
+  const _comments = useSelector(selectComments)?.map((comment) => comment.snippet.topLevelComment);
   const user = useSelector(selectUser);
 
   return (
     <div className="comments">
       <p className="comments__number">
-        <span className="number">150</span> Comments
+        <span className="number">{getCount(commentCount)}</span> Comments
       </p>
       <form className="comments__form" onSubmit={submitHandler}>
         <Avatar src={user?.photoURL} />
@@ -56,7 +55,7 @@ const Comments = ({ videoId }) => {
 
       <div className="comments__comments">
         {_comments?.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
+          <Comment key={comment?.id} comment={comment?.snippet} />
         ))}
       </div>
     </div>

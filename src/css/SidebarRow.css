@@ -22,8 +22,8 @@
   color: #030303;
   font-weight: 700;
 }
-.sidebarRow.playlist .sidebarRow__title {
-  font-size: 1rem;
+.sidebarRow.subscription .sidebarRow__title {
+  font-size: 0.9rem;
   font-weight: 500;
   color: #000;
 }
