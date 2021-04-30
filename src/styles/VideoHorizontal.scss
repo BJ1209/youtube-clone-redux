@@ -1,10 +1,12 @@
 .videoHorizontal {
   display: flex;
+  user-select: none;
+  cursor: pointer;
   #{&}__video {
     position: relative;
     margin-right: 0.5em;
-    width: 180px;
-    height: 100px;
+    width: 142px;
+    height: 80px;
     img {
       object-fit: cover;
       width: 100%;
@@ -26,7 +28,9 @@
   #{&}__title {
     font-size: 0.9rem;
     font-weight: 600;
+    width: 190px;
     letter-spacing: -0.5px;
+    word-wrap: break-word;
   }
   #{&}__channel {
     display: flex;

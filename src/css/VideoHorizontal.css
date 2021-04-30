@@ -1,11 +1,13 @@
 .videoHorizontal {
   display: flex;
+  user-select: none;
+  cursor: pointer;
 }
 .videoHorizontal .videoHorizontal__video {
   position: relative;
   margin-right: 0.5em;
-  width: 180px;
-  height: 100px;
+  width: 142px;
+  height: 80px;
 }
 .videoHorizontal .videoHorizontal__video img {
   object-fit: cover;
@@ -27,7 +29,9 @@
 .videoHorizontal .videoHorizontal__title {
   font-size: 0.9rem;
   font-weight: 600;
+  width: 190px;
   letter-spacing: -0.5px;
+  word-wrap: break-word;
 }
 .videoHorizontal .videoHorizontal__channel {
   display: flex;

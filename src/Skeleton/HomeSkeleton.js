@@ -2,7 +2,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const HomeSkeleton = () => {
   return (
-    <div>
+    <>
       <SkeletonTheme color="rgb(204,204,204)" highlightColor="rgb(214,214,214)">
         <Skeleton width={296} height={180} />
         <div style={{ display: 'flex', marginTop: '0.5em' }}>
@@ -13,7 +13,7 @@ const HomeSkeleton = () => {
           </div>
         </div>
       </SkeletonTheme>
-    </div>
+    </>
   );
 };
 

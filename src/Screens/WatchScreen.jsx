@@ -17,6 +17,9 @@ import {
   setVideo,
   setVideoError,
 } from '../features/selectedVideoSlice';
+import MetaDataSkeleton from '../Skeleton/MetaDataSkeleton';
+import RelatedVideoSkeleton from '../Skeleton/RelatedVideoSkeleton';
+
 const WatchScreen = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -34,20 +37,20 @@ const WatchScreen = () => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(getRelatedVideosById(id));
-        dispatch(setRelatedVideos(data?.items));
+        dispatch(setRelatedVideos(data?.items?.filter((item) => item.snippet)));
         dispatch(setLoading(false));
       } catch (error) {
         dispatch(setRelatedVideosError(error));
       }
     };
     fetchData();
-  });
+  }, [id]);
 
   const relatedVideos = useSelector(selectRelatedVideos);
 
@@ -63,21 +66,19 @@ const WatchScreen = () => {
             height="100%"
           ></iframe>
         </div>
-        {!loading ? <VideoMetaData video={video} /> : <h3>loading</h3>}
+        {!loading ? <VideoMetaData video={video} /> : <MetaDataSkeleton />}
         <Comments videoId={id} commentCount={video?.statistics?.commentCount} />
       </div>
       <div className="watchscreen__right">
-        {!loading ? (
-          relatedVideos.map((video) => (
-            <VideoHorizontal
-              key={video?.id?.videoId}
-              videoId={video?.id?.videoId}
-              video={video?.snippet}
-            />
-          ))
-        ) : (
-          <h3>loading</h3>
-        )}
+        {!loading
+          ? relatedVideos.map((video) => (
+              <VideoHorizontal
+                key={video?.id?.videoId}
+                videoId={video?.id?.videoId}
+                video={video?.snippet}
+              />
+            ))
+          : [...Array(10)].map((_, index) => <RelatedVideoSkeleton key={index} />)}
       </div>
     </div>
   );
