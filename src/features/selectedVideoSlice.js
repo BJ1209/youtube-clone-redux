@@ -7,6 +7,8 @@ export const selectedVideo = createSlice({
     loading: true,
     video: {},
     relatedVideos: [],
+    videoError: {},
+    relatedVideosError: {},
   },
 
   reducers: {
@@ -19,10 +21,22 @@ export const selectedVideo = createSlice({
     setRelatedVideos: (state, action) => {
       state.relatedVideos = [...action.payload];
     },
+    setVideoError: (state, action) => {
+      state.videoError = { ...action.payload };
+    },
+    setRelatedVideosError: (state, action) => {
+      state.relatedVideosError = { ...action.payload };
+    },
   },
 });
 
-export const { setLoading, setVideo, setRelatedVideos } = selectedVideo.actions;
+export const {
+  setLoading,
+  setVideo,
+  setRelatedVideos,
+  setVideoError,
+  setRelatedVideosError,
+} = selectedVideo.actions;
 
 export const selectVideo = (state) => state.selectedVideo.video;
 export const selectLoading = (state) => state.selectedVideo.loading;

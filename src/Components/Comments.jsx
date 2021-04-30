@@ -5,7 +5,12 @@ import axios from '../utils/axios';
 import { getCommentsByVideoId } from '../utils/requests';
 import { useDispatch, useSelector } from 'react-redux';
 import '../css/Comments.css';
-import { selectComments, setComments, setNextPageToken } from '../features/commentsSlice';
+import {
+  selectComments,
+  setComments,
+  setCommentsError,
+  setNextPageToken,
+} from '../features/commentsSlice';
 import { selectUser } from '../features/userSlice';
 import { getCount } from '../utils/basicFunctions';
 
@@ -23,7 +28,7 @@ const Comments = ({ videoId, commentCount }) => {
         dispatch(setComments(data?.items));
         dispatch(setNextPageToken(data?.nextPageToken));
       } catch (error) {
-        console.log(error.message);
+        dispatch(setCommentsError(error));
       }
     };
     fetchData();

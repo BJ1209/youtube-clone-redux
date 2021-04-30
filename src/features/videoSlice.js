@@ -7,6 +7,7 @@ export const videoSlice = createSlice({
     videos: [],
     activeCategory: 'All',
     nextPageToken: '',
+    error: {},
   },
 
   reducers: {
@@ -21,10 +22,13 @@ export const videoSlice = createSlice({
     setPageToken: (state, action) => {
       state.nextPageToken = action.payload;
     },
+    setHomeError: (state, action) => {
+      state.error = { ...action.payload };
+    },
   },
 });
 
-export const { setHomeVideos, setActiveCategory, setPageToken } = videoSlice.actions;
+export const { setHomeVideos, setActiveCategory, setPageToken, setHomeError } = videoSlice.actions;
 
 export const selectHomeVideos = (state) => state.video.videos;
 export const selectPageToken = (state) => state.video.nextPageToken;

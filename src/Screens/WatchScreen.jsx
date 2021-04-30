@@ -13,7 +13,9 @@ import {
   selectVideo,
   setLoading,
   setRelatedVideos,
+  setRelatedVideosError,
   setVideo,
+  setVideoError,
 } from '../features/selectedVideoSlice';
 const WatchScreen = () => {
   const { id } = useParams();
@@ -27,7 +29,7 @@ const WatchScreen = () => {
         const { data } = await axios.get(getVideoDetails(id));
         dispatch(setVideo(data?.items[0]));
       } catch (error) {
-        alert(error.message);
+        dispatch(setVideoError(error));
       }
     };
 
@@ -41,7 +43,7 @@ const WatchScreen = () => {
         dispatch(setRelatedVideos(data?.items));
         dispatch(setLoading(false));
       } catch (error) {
-        console.log(error.message);
+        dispatch(setRelatedVideosError(error));
       }
     };
     fetchData();

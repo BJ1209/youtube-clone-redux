@@ -7,6 +7,8 @@ export const channel = createSlice({
     loading: false,
     channel: {},
     subscriptionStatus: false,
+    channelError: {},
+    subscriptionStatusError: {},
   },
 
   reducers: {
@@ -19,10 +21,22 @@ export const channel = createSlice({
     setSubscriptionStatus: (state, action) => {
       state.subscriptionStatus = action.payload;
     },
+    setChannelError: (state, action) => {
+      state.channelError = { ...action.payload };
+    },
+    setSubscriptionStatusError: (state, action) => {
+      state.subscriptionStatusError = { ...action.payload };
+    },
   },
 });
 
-export const { setLoading, setChannel, setSubscriptionStatus } = channel.actions;
+export const {
+  setLoading,
+  setChannel,
+  setSubscriptionStatus,
+  setChannelError,
+  setSubscriptionStatusError,
+} = channel.actions;
 
 export const selectChannel = (state) => state.channel.channel;
 export const selectLoading = (state) => state.channel.loading;

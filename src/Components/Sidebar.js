@@ -12,11 +12,12 @@ import {
   VideoLibrary,
   Whatshot,
 } from '@material-ui/icons';
-import { selectPlaylists, setPlaylists } from '../features/playlistSlice';
+import { selectPlaylists, setPlaylistError, setPlaylists } from '../features/playlistSlice';
 import {
   selectLoading,
   selectSubscriptions,
   setLoading,
+  setSubscriptionError,
   setSubscriptions,
 } from '../features/subscriptionSlice';
 
@@ -39,7 +40,7 @@ const Sidebar = () => {
         dispatch(setPlaylists(data?.items));
         dispatch(setLoading(false));
       } catch (error) {
-        console.log(error.message);
+        dispatch(setPlaylistError(error));
       }
     };
     fetchData();
@@ -61,7 +62,7 @@ const Sidebar = () => {
         dispatch(setSubscriptions(data?.items));
         dispatch(setLoading(false));
       } catch (error) {
-        console.log(error.message);
+        dispatch(setSubscriptionError(error));
       }
     };
     fetchData();

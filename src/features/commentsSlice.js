@@ -6,6 +6,7 @@ export const comments = createSlice({
   initialState: {
     comments: [],
     nextPageToken: '',
+    error: {},
   },
 
   reducers: {
@@ -16,10 +17,13 @@ export const comments = createSlice({
     setNextPageToken: (state, action) => {
       state.nextPageToken = action.payload;
     },
+    setCommentsError: (state, action) => {
+      state.error = { ...action.payload };
+    },
   },
 });
 
-export const { setComments, setNextPageToken } = comments.actions;
+export const { setComments, setNextPageToken, setCommentsError } = comments.actions;
 
 export const selectComments = (state) => state.comments.comments;
 export const selectNextPageToken = (state) => state.comments.nextPageToken;

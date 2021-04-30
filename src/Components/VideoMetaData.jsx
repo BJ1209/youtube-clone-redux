@@ -6,8 +6,10 @@ import { getCount, getPublishedDate } from '../utils/basicFunctions';
 import {
   selectSubscriptionStatus,
   setChannel,
+  setChannelError,
   setLoading,
   setSubscriptionStatus,
+  setSubscriptionStatusError,
 } from '../features/channelSlice';
 import Avatar from './Avatar';
 import axios from '../utils/axios';
@@ -37,7 +39,7 @@ const VideoMetaData = ({ video }) => {
         dispatch(setChannel(data?.items[0]));
         dispatch(setLoading(false));
       } catch (error) {
-        alert(error.message);
+        dispatch(setChannelError(error));
       }
     };
     fetchData();
@@ -59,7 +61,7 @@ const VideoMetaData = ({ video }) => {
         });
         dispatch(setSubscriptionStatus(res?.data?.items?.length > 0 ? true : false));
       } catch (error) {
-        return null;
+        dispatch(setSubscriptionStatusError(error));
       }
     };
     fetchData();

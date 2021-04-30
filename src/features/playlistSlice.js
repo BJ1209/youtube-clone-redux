@@ -6,6 +6,7 @@ export const playlists = createSlice({
   initialState: {
     loading: true,
     playlists: [],
+    error: {},
   },
 
   reducers: {
@@ -15,10 +16,13 @@ export const playlists = createSlice({
     setPlaylists: (state, action) => {
       state.playlists = [...action.payload];
     },
+    setPlaylistError: (state, action) => {
+      state.error = { ...action.payload };
+    },
   },
 });
 
-export const { setLoading, setPlaylists } = playlists.actions;
+export const { setLoading, setPlaylists, setPlaylistError } = playlists.actions;
 
 export const selectLoading = (state) => state.playlists.loading;
 export const selectPlaylists = (state) => state.playlists.playlists;

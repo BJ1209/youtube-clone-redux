@@ -6,6 +6,7 @@ export const subscription = createSlice({
   initialState: {
     loading: true,
     subscriptions: [],
+    error: {},
   },
 
   reducers: {
@@ -15,10 +16,13 @@ export const subscription = createSlice({
     setSubscriptions: (state, action) => {
       state.subscriptions = [...action.payload];
     },
+    setSubscriptionError: (state, action) => {
+      state.error = { ...action.payload };
+    },
   },
 });
 
-export const { setLoading, setSubscriptions } = subscription.actions;
+export const { setLoading, setSubscriptions, setSubscriptionError } = subscription.actions;
 
 export const selectLoading = (state) => state.subscription.loading;
 export const selectSubscriptions = (state) => state.subscription.subscriptions;

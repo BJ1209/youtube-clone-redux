@@ -1,7 +1,12 @@
 import axios from '../utils/axios';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectActiveCategory, selectPageToken, setHomeVideos } from '../features/videoSlice';
+import {
+  selectActiveCategory,
+  selectPageToken,
+  setHomeError,
+  setHomeVideos,
+} from '../features/videoSlice';
 import { getMostPopularVideos } from '../utils/requests';
 
 function useFetchVideos() {
@@ -21,7 +26,7 @@ function useFetchVideos() {
           setPage(res.data.nextPageToken);
           setLoading(false);
         } catch (error) {
-          alert(error.message);
+          dispatch(setHomeError(error));
         }
       }
     };
