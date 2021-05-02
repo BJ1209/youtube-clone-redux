@@ -4,7 +4,14 @@ import axios from '../utils/axios';
 import '../css/Sidebar.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { History, Home, PlaylistPlay, VideoLibrary, Whatshot } from '@material-ui/icons';
+import {
+  History,
+  Home,
+  PlaylistPlay,
+  Subscriptions,
+  VideoLibrary,
+  Whatshot,
+} from '@material-ui/icons';
 import { selectPlaylists, setPlaylistError, setPlaylists } from '../features/playlistSlice';
 import {
   selectLoading,
@@ -77,6 +84,7 @@ const Sidebar = () => {
     <aside className="sidebar">
       <SidebarRow selected title="Home" Icon={<Home />} />
       <SidebarRow title="Trending" Icon={<Whatshot />} />
+      <SidebarRow title="Subscriptions" Icon={<Subscriptions />} />
       <hr />
       <SidebarRow title="Library" Icon={<VideoLibrary />} />
       <SidebarRow title="History" Icon={<History />} />

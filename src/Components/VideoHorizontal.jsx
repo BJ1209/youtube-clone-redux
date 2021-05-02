@@ -1,4 +1,3 @@
-import { CheckCircle } from '@material-ui/icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useHistory } from 'react-router';
 import { getDuration, getPublishedDate, getSubstring } from '../utils/basicFunctions';
@@ -40,7 +39,7 @@ const VideoHorizontal = ({ videoId, video, searchScreen }) => {
   return (
     <div className="videoHorizontal" onClick={() => history.push(`/watch/${videoId}`)}>
       <div className={`videoHorizontal__video ${searchScreen ? 'search' : ''}`}>
-        <LazyLoadImage src={video?.thumbnails?.medium?.url} alt={video?.title} />
+        <LazyLoadImage src={video?.thumbnails?.high?.url} alt={video?.title} />
         <span className="videoHorizontal__duration">{getDuration(duration)}</span>
       </div>
       <div className="videoHorizontal__details">
@@ -48,11 +47,13 @@ const VideoHorizontal = ({ videoId, video, searchScreen }) => {
           {!searchScreen ? getSubstring(video?.title, 50) : video?.title}
         </h3>
         <div className={`videoHorizontal__channel ${searchScreen ? 'search--channel' : ' '}`}>
-          {searchScreen && <Avatar src={channelThumbnail} style={{ width: 30, height: 30 }} />}{' '}
+          {searchScreen && (
+            <Avatar
+              src={channelThumbnail}
+              style={{ width: 30, height: 30, marginRight: '0.5em' }}
+            />
+          )}{' '}
           <p className="videoHorizontal__channelName">{video?.channelTitle}</p>
-          <span>
-            <CheckCircle />
-          </span>
         </div>
         <div className="videoHorizontal__stats">
           <div className="videoHorizontal__views">
