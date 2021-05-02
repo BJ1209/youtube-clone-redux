@@ -11,5 +11,5 @@ export const getCount = (views) => numeral(views).format('0.00a');
 
 export const getPublishedDate = (date) => moment(date).fromNow();
 
-export const getSubstring = (title) =>
-  title?.length > 50 ? title.substring(0, 50) + '...' : title;
+export const getSubstring = (title, num) =>
+  title?.length > num ? title.substring(0, num) + '...' : title;

@@ -1,0 +1,36 @@
+.channel {
+  display: flex;
+  align-items: center;
+  padding: 1.5em 0;
+  border-bottom: 1px solid lightgray;
+}
+.channel .channel__channelImage {
+  flex: 0.33;
+}
+.channel .channel__channelImage img {
+  display: block;
+  object-fit: contain;
+  height: 10em;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.channel .channel__channelDetails {
+  flex: 0.67;
+  max-width: 600px;
+}
+.channel .channel__title {
+  font-weight: 500;
+}
+.channel .channel__stats,
+.channel .channel__description {
+  display: flex;
+  font-size: 0.9rem;
+  margin: 0.35em 0;
+  color: #5a5a5a;
+}
+.channel .channel__stats > * + *,
+.channel .channel__description > * + * {
+  margin-left: 0.2em;
+}
+
+/*# sourceMappingURL=Channel.css.map */

@@ -12,6 +12,7 @@ import {
   selectRelatedVideos,
   selectVideo,
   setLoading,
+  setRelatedVideoNextPageToken,
   setRelatedVideos,
   setRelatedVideosError,
   setVideo,
@@ -43,6 +44,7 @@ const WatchScreen = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(getRelatedVideosById(id));
+        dispatch(setRelatedVideoNextPageToken(data?.nextPageToken));
         dispatch(setRelatedVideos(data?.items?.filter((item) => item.snippet)));
         dispatch(setLoading(false));
       } catch (error) {

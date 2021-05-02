@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { IconButton } from '@material-ui/core';
 import { Apps, Menu, MoreVert, Notifications, Search, VideoCall } from '@material-ui/icons';
 
@@ -13,8 +13,11 @@ import { auth } from '../config/firebase';
 const Header = () => {
   const [input, setInput] = useState('');
   const user = useSelector(selectUser);
+  const history = useHistory();
+
   const submitHandler = (e) => {
     e.preventDefault();
+    history.push(`/search/${input}`);
   };
 
   return (

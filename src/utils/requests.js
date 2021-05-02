@@ -13,4 +13,6 @@ export const getVideosByCategory = (category) =>
 export const getCommentsByVideoId = (videoId) => `/commentThreads?part=snippet&videoId=${videoId}`;
 
 export const getRelatedVideosById = (videoId) =>
-  `/search?part=snippet&maxResults=15&relatedToVideoId=${videoId}&type=video`;
+  `/search?part=snippet&maxResults=20&relatedToVideoId=${videoId}&type=video`;
+
+export const getSearchResults = (query) => `/search?part=snippet&maxResults=25&q=${query}`;

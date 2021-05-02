@@ -6,6 +6,7 @@ import channelReducer from '../features/channelSlice';
 import commentsReducer from '../features/commentsSlice';
 import playlistsReducer from '../features/playlistSlice';
 import SubscriptionsReducer from '../features/subscriptionSlice';
+import searchReducer from '../features/searchSlice';
 
 export default configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export default configureStore({
     selectedVideo: selectedVideoReducer,
     channel: channelReducer,
     comments: commentsReducer,
+    search: searchReducer,
   },
 });

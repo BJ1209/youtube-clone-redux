@@ -10,6 +10,7 @@ import Login from '../Components/Login';
 import WatchScreen from '../Screens/WatchScreen';
 import HomeScreen from '../Screens/HomeScreen.jsx';
 import '../css/App.css';
+import SearchScreen from '../Screens/SearchScreen';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,8 +37,8 @@ function App() {
           <div className="app__body">
             <Sidebar />
             <Switch>
-              <Route path="/search/:searchId">
-                <h1>Search Results</h1>
+              <Route path="/search/:query">
+                <SearchScreen />
               </Route>
               <Route path="/watch/:id">
                 <WatchScreen />

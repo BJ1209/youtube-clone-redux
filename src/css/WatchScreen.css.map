@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../styles/WatchScreen.scss","../styles/_colors.scss","../styles/_variables.scss"],"names":[],"mappings":"AAGA;EACE;EACA,YCYgB;EDXhB;EACA;EACA,SEFa;;AFKb;EACE;;AAGF;EACE;;AAEF;EACE;EACA;;AAEF;EACE;;AACA;EACE","file":"WatchScreen.css"}
+{"version":3,"sourceRoot":"","sources":["../styles/WatchScreen.scss","../styles/_colors.scss","../styles/_variables.scss"],"names":[],"mappings":"AAGA;EACE;EACA,YCHW;EDIX;EACA;EACA,SEFa;;AFKb;EACE;;AAGF;EACE;;AAEF;EACE;EACA;;AAEF;EACE;;AACA;EACE","file":"WatchScreen.css"}

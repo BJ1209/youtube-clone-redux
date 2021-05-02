@@ -7,6 +7,7 @@ export const selectedVideo = createSlice({
     loading: true,
     video: {},
     relatedVideos: [],
+    relatedVideoNextPageToken: '',
     videoError: {},
     relatedVideosError: {},
   },
@@ -27,6 +28,9 @@ export const selectedVideo = createSlice({
     setRelatedVideosError: (state, action) => {
       state.relatedVideosError = { ...action.payload };
     },
+    setRelatedVideoNextPageToken: (state, action) => {
+      state.relatedVideoNextPageToken = action.payload;
+    },
   },
 });
 
@@ -36,6 +40,7 @@ export const {
   setRelatedVideos,
   setVideoError,
   setRelatedVideosError,
+  setRelatedVideoNextPageToken,
 } = selectedVideo.actions;
 
 export const selectVideo = (state) => state.selectedVideo.video;
