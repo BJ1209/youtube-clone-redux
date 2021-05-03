@@ -51,9 +51,17 @@
 }
 
 @mixin layout {
+  // for the layout  of watchScreen,channelScreen,searchScreen
   flex: 1;
   background: clr.$clr-screen;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+}
+
+// mixin for the media query
+@mixin mq($min, $max) {
+  @media screen and (min-width: $min) and(max-width:$max) {
+    @content;
+  }
 }

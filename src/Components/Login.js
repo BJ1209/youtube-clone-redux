@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login__container">
-        <h1 className="login__title">Youtube Clone</h1>
+        <h1 className="login__title">YouTube Clone</h1>
         <YouTubeLogo className="login__logo" />
         <button className="login__button" onClick={loginHandler}>
           <span>
@@ -36,7 +36,7 @@ const Login = () => {
           <span>Login with Google</span>
         </button>
         <p className="login__description">
-          This Project is made using ReactJs, Firebase and YouTube API.
+          This Project is made using ReactJs, Firebase and YouTube Data API.
         </p>
       </div>
     </div>
