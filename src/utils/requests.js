@@ -16,3 +16,8 @@ export const getRelatedVideosById = (videoId) =>
   `/search?part=snippet&maxResults=20&relatedToVideoId=${videoId}&type=video`;
 
 export const getSearchResults = (query) => `/search?part=snippet&maxResults=25&q=${query}`;
+
+export const getChannelsUploadId = (channelId) => `/channels?part=contentDetails&id=${channelId}`;
+
+export const getPlaylistItemsById = (playlistId) =>
+  `/playlistItems?part=snippet%2CcontentDetails&playlistId=${playlistId}&maxResults=20`;

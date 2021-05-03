@@ -8,7 +8,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useHistory } from 'react-router';
 import Avatar from './Avatar';
 
-const Video = ({ video }) => {
+const Video = ({ video, channelScreen }) => {
   const {
     id,
     snippet: {
@@ -18,13 +18,15 @@ const Video = ({ video }) => {
       thumbnails: { medium },
       publishedAt,
     },
+    contentDetails,
   } = video;
 
   const [channelThumbnail, setChannelThumbnail] = useState('');
   const [duration, setDuration] = useState('');
   const [viewCount, setViewCount] = useState('');
-  const _videoId = id?.videoId || id;
+  const _videoId = contentDetails?.videoId || id?.videoId || id;
   const history = useHistory();
+
   // UseEffect For getting the Channel Thumbnail for each video
   useEffect(() => {
     const fetchDetails = async () => {
@@ -53,7 +55,7 @@ const Video = ({ video }) => {
   }, []);
 
   return (
-    <div className="video" onClick={() => history.push(`watch/${_videoId}`)}>
+    <div className="video" onClick={() => history.push(`/watch/${_videoId}`)}>
       <div className="video__container">
         <LazyLoadImage src={medium?.url} alt={title} className="video__image" />
         <div className="video__time">{getDuration(duration)}</div>
@@ -65,10 +67,12 @@ const Video = ({ video }) => {
         </button>
       </div>
       <div className="video__info">
-        <Avatar style={{ marginRight: '0.5em' }} src={channelThumbnail} alt={channelTitle} />
+        {!channelScreen && (
+          <Avatar style={{ marginRight: '0.5em' }} src={channelThumbnail} alt={channelTitle} />
+        )}
         <div className="video__desc">
           <h3 className="video__title">{title}</h3>
-          <p className="video__channel">{channelTitle}</p>
+          {!channelScreen && <p className="video__channel">{channelTitle}</p>}{' '}
           <p>
             <span className="video__views">{getCount(viewCount)} views</span>
             <span className="video__timestamp">{getPublishedDate(publishedAt)}</span>

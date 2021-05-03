@@ -3,11 +3,14 @@ import axios from '../utils/axios';
 import { getChannelDetails } from '../utils/requests';
 import { getCount } from '../utils/basicFunctions';
 import '../css/Channel.css';
+import { useHistory } from 'react-router';
 
-const Channel = ({ channel, channelId }) => {
+const Channel = ({ channel, channelId, channelScreen }) => {
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [videoCount, setVideoCount] = useState(0);
+  const history = useHistory();
 
+  // useEffect for the subscriber  and video count.
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,19 +25,25 @@ const Channel = ({ channel, channelId }) => {
     fetchData();
   }, [channelId]);
 
+  const clickHandler = () => (!channelScreen ? history.push(`/channel/${channelId}`) : null);
+
   return (
-    <div className="channel">
-      <div className="channel__channelImage">
-        <img src={channel?.thumbnails?.medium?.url} alt={channel?.channelTitle} />
+    <div className={`channel ${!channelScreen ? 'channel--screen' : ''}`} onClick={clickHandler}>
+      <div className={`channel__channelImage`}>
+        <img
+          className={channelScreen ? 'channelScreen--image' : ''}
+          src={channel?.thumbnails?.medium?.url}
+          alt={channel?.channelTitle}
+        />
       </div>
       <div className="channel__channelDetails">
-        <h3 className="channel__title">{channel?.channelTitle}</h3>
+        <h3 className="channel__title">{channel?.channelTitle || channel?.title}</h3>
         <div className="channel__stats">
           <span>{getCount(subscriberCount)} subscribers</span>
           <span>•</span>
           <span>{videoCount} videos</span>
         </div>
-        <div className="channel__description">{channel?.description}</div>
+        {!channelScreen && <div className="channel__description">{channel?.description}</div>}
       </div>
     </div>
   );

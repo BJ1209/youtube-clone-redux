@@ -5,6 +5,10 @@
   padding: 1.5em 0;
   border-bottom: var.$border;
 
+  &.channel--screen {
+    cursor: pointer;
+  }
+
   #{&}__channelImage {
     flex: 0.33;
     img {
@@ -13,6 +17,11 @@
       height: 10em;
       border-radius: 50%;
       margin: 0 auto;
+
+      &.channelScreen--image {
+        border: 1px solid lightgray;
+        height: 7em;
+      }
     }
   }
   #{&}__channelDetails {

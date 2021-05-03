@@ -1,9 +1,11 @@
 .watchscreen {
+  padding: 1.2em 1.5em;
   flex: 1;
   background: #f9f9f9;
-  overflow: auto;
   display: flex;
-  padding: 1.2em 1.5em;
+  flex-direction: column;
+  overflow-y: scroll;
+  flex-direction: row;
 }
 .watchscreen > * + * {
   margin-left: 1.5em;

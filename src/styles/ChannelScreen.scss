@@ -1,15 +1,12 @@
-@use './variables' as var;
 @use './mixins' as mxn;
+@use './variables' as var;
 
-.homescreen {
+.channelScreen {
   @include mxn.layout;
-
   #{&}__videos {
     padding: var.$main-padding;
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
-    overflow-y: scroll;
   }
 }

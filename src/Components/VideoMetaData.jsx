@@ -15,6 +15,7 @@ import Avatar from './Avatar';
 import axios from '../utils/axios';
 import { getChannelDetails } from '../utils/requests';
 import '../css/VideoMetaData.css';
+import { useHistory } from 'react-router';
 
 const VideoMetaData = ({ video }) => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const VideoMetaData = ({ video }) => {
     statistics: { viewCount, likeCount, dislikeCount },
   } = video;
 
+  const history = useHistory();
   // Using useEffect for fetching data for the channelDetails
   useEffect(() => {
     const fetchData = async () => {
@@ -96,7 +98,12 @@ const VideoMetaData = ({ video }) => {
       <div className="videoMetaData__channel">
         <Avatar src={thumbnail} />
         <div className="videoMetaData__channelDetails">
-          <h4 className="videoMetaData__channelTitle">{channelTitle}</h4>
+          <h4
+            className="videoMetaData__channelTitle"
+            onClick={() => history.push(`/channel/${channelId}`)}
+          >
+            {channelTitle}
+          </h4>
           <p className="videoMetaData__channelSubscribers">{getCount(subscribers)} subscribers</p>
         </div>
         {subscribed ? (

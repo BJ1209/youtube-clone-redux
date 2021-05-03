@@ -26,7 +26,7 @@ const Header = () => {
         <IconButton>
           <Menu id="hamburgerIcon" className="header__icon" />
         </IconButton>
-        <Link to="/">
+        <Link to="/" title="YouTube Home">
           <YouTubeLogo className="header__logo" alt="Youtube logo" />
         </Link>
       </div>

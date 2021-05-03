@@ -20,10 +20,12 @@ import {
   setSubscriptionError,
   setSubscriptions,
 } from '../features/subscriptionSlice';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
 
+  // useEffect for fetching the playlists of user
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,7 +33,7 @@ const Sidebar = () => {
           params: {
             part: 'snippet',
             mine: true,
-            maxResults: 30,
+            maxResults: 25,
           },
           headers: {
             Authorization: `Bearer ${localStorage?.accessToken}`,
@@ -46,6 +48,7 @@ const Sidebar = () => {
     fetchData();
   }, []);
 
+  // useEffect for fetching the subscriptions
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -69,12 +72,19 @@ const Sidebar = () => {
   }, []);
 
   const playlists = useSelector(selectPlaylists)?.map((playlist) => (
-    <SidebarRow key={playlist?.id} Icon={<PlaylistPlay />} title={playlist?.snippet?.title} />
+    <SidebarRow
+      playlist
+      key={playlist?.id}
+      Icon={<PlaylistPlay />}
+      title={playlist?.snippet?.title}
+    />
   ));
 
   const subscriptions = useSelector(selectSubscriptions)?.map((item) => (
     <SidebarRow
+      subscription
       key={item?.id}
+      channelId={item?.snippet?.resourceId?.channelId}
       src={item?.snippet?.thumbnails?.medium?.url}
       title={item?.snippet?.title}
     />
@@ -82,9 +92,10 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar">
-      <SidebarRow selected title="Home" Icon={<Home />} />
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <SidebarRow selected title="Home" Icon={<Home />} />
+      </Link>
       <SidebarRow title="Trending" Icon={<Whatshot />} />
-      <SidebarRow title="Subscriptions" Icon={<Subscriptions />} />
       <hr />
       <SidebarRow title="Library" Icon={<VideoLibrary />} />
       <SidebarRow title="History" Icon={<History />} />

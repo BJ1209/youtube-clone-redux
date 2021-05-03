@@ -11,6 +11,7 @@ import WatchScreen from '../Screens/WatchScreen';
 import HomeScreen from '../Screens/HomeScreen.jsx';
 import '../css/App.css';
 import SearchScreen from '../Screens/SearchScreen';
+import ChannelScreen from '../Screens/ChannelScreen';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
           <div className="app__body">
             <Sidebar />
             <Switch>
+              <Route path="/channel/:channelId">
+                <ChannelScreen />
+              </Route>
               <Route path="/search/:query">
                 <SearchScreen />
               </Route>

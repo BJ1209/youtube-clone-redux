@@ -1,14 +1,13 @@
 @use './colors' as clr;
 @use './variables' as var;
+@use './mixins' as mxn;
 
 .watchscreen {
-  flex: 1;
-  background: clr.$clr-screen;
-  overflow: auto;
-  display: flex;
   padding: var.$main-padding;
+  @include mxn.layout;
+  flex-direction: row;
 
-  // for safari and other browsers
+  // Gap between the flex-items
   & > * + * {
     margin-left: 1.5em;
   }
