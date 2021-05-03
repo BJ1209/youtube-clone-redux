@@ -4,14 +4,7 @@ import axios from '../utils/axios';
 import '../css/Sidebar.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  History,
-  Home,
-  PlaylistPlay,
-  Subscriptions,
-  VideoLibrary,
-  Whatshot,
-} from '@material-ui/icons';
+import { ExitToApp, Home, PlaylistPlay } from '@material-ui/icons';
 import { selectPlaylists, setPlaylistError, setPlaylists } from '../features/playlistSlice';
 import {
   selectLoading,
@@ -21,6 +14,7 @@ import {
   setSubscriptions,
 } from '../features/subscriptionSlice';
 import { Link } from 'react-router-dom';
+import { auth } from '../config/firebase';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -48,7 +42,7 @@ const Sidebar = () => {
     fetchData();
   }, []);
 
-  // useEffect for fetching the subscriptions
+  // useEffect for fetching the subscriptions of user
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -95,10 +89,15 @@ const Sidebar = () => {
       <Link to="/" style={{ textDecoration: 'none' }}>
         <SidebarRow selected title="Home" Icon={<Home />} />
       </Link>
-      <SidebarRow title="Trending" Icon={<Whatshot />} />
-      <hr />
-      <SidebarRow title="Library" Icon={<VideoLibrary />} />
-      <SidebarRow title="History" Icon={<History />} />
+      <span
+        style={{ cursor: 'pointer' }}
+        onClick={() => {
+          auth.signOut();
+          localStorage.clear();
+        }}
+      >
+        <SidebarRow title="Logout" Icon={<ExitToApp />} />
+      </span>
       <hr />
       <h4>Subscriptions</h4>
       {subscriptions}

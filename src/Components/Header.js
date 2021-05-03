@@ -62,16 +62,7 @@ const Header = () => {
             <MoreVert className="header__icon" />
           </IconButton>
         )}
-        {user && (
-          <Avatar
-            src={user?.photoURL}
-            style={{ cursor: 'pointer' }}
-            onClick={() => {
-              auth.signOut();
-              localStorage.clear();
-            }}
-          />
-        )}
+        <Avatar src={user?.photoURL} />
       </div>
     </header>
   );

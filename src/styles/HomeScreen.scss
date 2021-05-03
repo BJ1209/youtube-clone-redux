@@ -3,6 +3,7 @@
 
 .homescreen {
   @include mxn.layout;
+  @include mxn.scrollbarFunctionality;
 
   #{&}__videos {
     padding: var.$main-padding;

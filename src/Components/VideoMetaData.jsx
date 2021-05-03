@@ -24,18 +24,21 @@ const VideoMetaData = ({ video }) => {
   const [thumbnail, setThumbnail] = useState('');
 
   const subscribed = useSelector(selectSubscriptionStatus);
-  const {
-    snippet: { title, description, publishedAt, channelId, channelTitle },
-    statistics: { viewCount, likeCount, dislikeCount },
-  } = video;
+
+  // This is not a good method as it is not catching the error, whereas the optional-chaining is catching the errors
+  // const {
+  //   snippet: { title, description, publishedAt, channelId, channelTitle },
+  //   statistics: { viewCount, likeCount, dislikeCount },
+  // } = video;
 
   const history = useHistory();
+
   // Using useEffect for fetching data for the channelDetails
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch(setLoading(true));
-        const { data } = await axios.get(getChannelDetails(channelId));
+        const { data } = await axios.get(getChannelDetails(video?.snippet?.channelId));
         setSubscribers(data?.items[0]?.statistics?.subscriberCount);
         setThumbnail(data?.items[0]?.snippet?.thumbnails?.medium?.url);
         dispatch(setChannel(data?.items[0]));
@@ -54,7 +57,7 @@ const VideoMetaData = ({ video }) => {
         const res = await axios('/subscriptions', {
           params: {
             part: 'snippet',
-            forChannelId: channelId,
+            forChannelId: video?.snippet?.channelId,
             mine: true,
           },
           headers: {
@@ -67,30 +70,30 @@ const VideoMetaData = ({ video }) => {
       }
     };
     fetchData();
-  });
+  }, []);
 
   return (
     <div className="videoMetaData">
       <div className="videoMetaData__top">
-        <h3 className="videoMetaData__title">{title}</h3>
+        <h3 className="videoMetaData__title">{video?.snippet?.title}</h3>
         <div className="videoMetaData__stats">
           <div className="videoMetaData__left">
-            <span>{getCount(viewCount)} views</span>
+            <span>{getCount(video?.statistics?.viewCount)} views</span>
             <span>•</span>
-            <span>{getPublishedDate(publishedAt)}</span>
+            <span>{getPublishedDate(video?.snippet?.publishedAt)}</span>
           </div>
           <div className="videoMetaData__right">
             <span className="videoMetaData__like">
               <IconButton>
                 <ThumbUp />
               </IconButton>
-              {getCount(likeCount)}
+              {getCount(video?.statistics?.likeCount)}
             </span>
             <span className="videoMetaData__dislike">
               <IconButton>
                 <ThumbDown />
               </IconButton>
-              {getCount(dislikeCount)}
+              {getCount(video?.statistics?.dislikeCount)}
             </span>
           </div>
         </div>
@@ -100,9 +103,9 @@ const VideoMetaData = ({ video }) => {
         <div className="videoMetaData__channelDetails">
           <h4
             className="videoMetaData__channelTitle"
-            onClick={() => history.push(`/channel/${channelId}`)}
+            onClick={() => history.push(`/channel/${video?.snippet?.channelId}`)}
           >
-            {channelTitle}
+            {video?.snippet?.channelTitle}
           </h4>
           <p className="videoMetaData__channelSubscribers">{getCount(subscribers)} subscribers</p>
         </div>
@@ -113,7 +116,7 @@ const VideoMetaData = ({ video }) => {
         )}
       </div>
       <div className="videoMetaData__description">
-        <p className={`${show ? '' : 'show_more'}`}>{description}</p>
+        <p className={`${show ? '' : 'show_more'}`}>{video?.snippet?.description}</p>
         <button onClick={() => setShow((prev) => !prev)}>{show ? 'show more' : 'show less'}</button>
       </div>
     </div>
