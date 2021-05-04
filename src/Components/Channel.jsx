@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from '../utils/axios';
 import { getChannelDetails } from '../utils/requests';
-import { getCount } from '../utils/basicFunctions';
+import { getCount, getSubstring } from '../utils/basicFunctions';
 import '../css/Channel.css';
 import { useHistory } from 'react-router';
 
-const Channel = ({ channel, channelId, channelScreen }) => {
+const Channel = ({ channel, channelId, channelScreen, subscriptionScreen }) => {
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [videoCount, setVideoCount] = useState(0);
   const history = useHistory();
@@ -43,7 +43,11 @@ const Channel = ({ channel, channelId, channelScreen }) => {
           <span>•</span>
           <span>{videoCount} videos</span>
         </div>
-        {!channelScreen && <div className="channel__description">{channel?.description}</div>}
+        {!channelScreen && (
+          <div className="channel__description">
+            {subscriptionScreen ? getSubstring(channel?.description, 180) : channel?.description}
+          </div>
+        )}
       </div>
     </div>
   );

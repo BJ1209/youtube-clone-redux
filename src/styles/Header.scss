@@ -1,16 +1,26 @@
 @use './colors' as clr;
 @use './mixins' as mxn;
+@use './variables' as var;
 
 .header {
   @include mxn.flex {
     justify-content: space-between;
   }
   padding: 0.2em 0.5em 0;
+  @include mxn.mq(var.$bp-0, var.$bp-450) {
+    padding: 0.2em 0;
+  }
   z-index: 100;
   background-color: clr.$clr-white;
 
   #{&}__icon {
     color: clr.$clr-hdr-icon;
+  }
+
+  #{&}__iconBtn {
+    @include mxn.mq(var.$bp-0, var.$bp-768) {
+      display: none;
+    }
   }
 
   #{&}__left {
@@ -20,6 +30,10 @@
       object-fit: contain;
       height: 1.05em;
       margin-left: 0.5em;
+      @include mxn.mq(var.$bp-0, var.$bp-450) {
+        height: 0.9em;
+        margin-left: 0;
+      }
     }
   }
 
@@ -31,6 +45,17 @@
         border: 1px solid clr.$clr-hdr-sb-border;
         width: 60%;
         margin: 0 auto;
+
+        @include mxn.mq(var.$bp-600, var.$bp-768) {
+          width: 75%;
+        }
+        @include mxn.mq(var.$bp-450, var.$bp-600) {
+          width: 85%;
+          margin-left: 0.5em;
+        }
+        @include mxn.mq(var.$bp-0, var.$bp-450) {
+          width: 90%;
+        }
       }
       Input {
         flex: 1;
@@ -64,25 +89,17 @@
     .header__icon {
       margin-right: 0.5em;
     }
+
+    img {
+      @include mxn.mq(var.$bp-0, var.$bp-450) {
+        display: none;
+      }
+    }
+
     &.user {
       justify-content: space-around !important;
       .header__icon {
         margin-right: 0;
-      }
-    }
-  }
-  #{&}__button {
-    margin-right: 0.5em;
-    @include mxn.flex;
-    border: 1px solid clr.$clr-hdr-button;
-    padding: 0.2em 0.5em;
-    background: transparent;
-    cursor: pointer;
-    span {
-      text-transform: uppercase;
-      color: clr.$clr-hdr-button;
-      &:last-of-type {
-        font-weight: 600;
       }
     }
   }

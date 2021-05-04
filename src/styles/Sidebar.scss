@@ -1,21 +1,45 @@
 @use './mixins' as mxn;
+@use './variables' as var;
 
 .sidebar {
   width: 220px;
   padding-right: 0.5em;
   overflow-y: scroll;
   @include mxn.scrollbarFunctionality;
-  & > hr {
+
+  @include mxn.mq(var.$bp-768, var.$bp-1200) {
+    width: 100px;
+  }
+  @include mxn.mq(var.$bp-0, var.$bp-768) {
+    display: none;
+  }
+
+  .bigScreen {
+    @include mxn.mq(var.$bp-768, var.$bp-1200) {
+      display: none;
+    }
+  }
+
+  & > .bigScreen hr,
+  hr {
     height: 1px;
     border: 0;
     background-color: lightgray;
     margin: 0.5em 0;
   }
-  & > h4 {
+  & > .bigScreen > h4 {
     padding: 0.5em 1.4em;
     font-size: 0.85rem;
     opacity: 0.6;
     letter-spacing: 1px;
     text-transform: uppercase;
+  }
+  & a {
+    text-decoration: none;
+  }
+  .subscription--row {
+    @include mxn.mqMin(var.$bp-1200) {
+      display: none;
+    }
   }
 }

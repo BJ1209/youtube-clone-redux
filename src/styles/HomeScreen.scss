@@ -8,9 +8,21 @@
   #{&}__videos {
     padding: var.$main-padding;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+    // display: flex;
+    // flex-wrap: wrap;
     overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+    justify-content: center;
+    @include mxn.mq(750px, var.$bp-1200) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include mxn.mq(450px, 750px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mxn.mq(0px, 450px) {
+      grid-template-columns: 1fr;
+    }
   }
 }

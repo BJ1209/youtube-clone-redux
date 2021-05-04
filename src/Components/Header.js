@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { IconButton } from '@material-ui/core';
-import { Apps, Menu, MoreVert, Notifications, Search, VideoCall } from '@material-ui/icons';
+import { Apps, Menu, Notifications, Search, VideoCall } from '@material-ui/icons';
 
 import { ReactComponent as YouTubeLogo } from '../Assets/logo/youtube-full.svg';
 import '../css/Header.css';
@@ -24,7 +24,7 @@ const Header = () => {
     <header className="header">
       <div className="header__left">
         <IconButton>
-          <Menu id="hamburgerIcon" className="header__icon" />
+          <Menu id="hamburgerIcon" />
         </IconButton>
         <Link to="/" title="YouTube Home">
           <YouTubeLogo className="header__logo" alt="Youtube logo" />
@@ -40,29 +40,25 @@ const Header = () => {
             placeholder="Search"
           />
           <button type="submit">
-            <Search className="header__icon" />
+            <Search />
           </button>
         </form>
       </div>
       <div className={`header__right ${user ? 'user' : ''}`}>
         {user && (
-          <IconButton>
+          <IconButton className="header__iconBtn">
             <VideoCall className="header__icon" />
           </IconButton>
         )}
-        <IconButton>
+        <IconButton className="header__iconBtn">
           <Apps className="header__icon" />
         </IconButton>
-        {user ? (
-          <IconButton>
+        {user && (
+          <IconButton className="header__iconBtn">
             <Notifications className="header__icon" />
           </IconButton>
-        ) : (
-          <IconButton>
-            <MoreVert className="header__icon" />
-          </IconButton>
         )}
-        <Avatar src={user?.photoURL} />
+        <Avatar style={{ width: 35, height: 35 }} src={user?.photoURL} />
       </div>
     </header>
   );

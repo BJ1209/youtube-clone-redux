@@ -24,7 +24,7 @@
     padding: 3em 0em;
   }
 }
-@media screen and (min-width: 0px) and (max-width: 425px) {
+@media screen and (min-width: 0px) and (max-width: 450px) {
   .login .login__container {
     box-shadow: none;
     border: none;

@@ -4,7 +4,7 @@ import axios from '../utils/axios';
 import '../css/Sidebar.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ExitToApp, Home, PlaylistPlay } from '@material-ui/icons';
+import { ExitToApp, Home, PlaylistPlay, Subscriptions } from '@material-ui/icons';
 import { selectPlaylists, setPlaylistError, setPlaylists } from '../features/playlistSlice';
 import {
   selectLoading,
@@ -86,9 +86,14 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar">
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/">
         <SidebarRow selected title="Home" Icon={<Home />} />
       </Link>
+      <span className="subscription--row">
+        <Link to="/subscriptions">
+          <SidebarRow title="Subscriptions" Icon={<Subscriptions />} />
+        </Link>
+      </span>
       <span
         style={{ cursor: 'pointer' }}
         onClick={() => {
@@ -98,12 +103,14 @@ const Sidebar = () => {
       >
         <SidebarRow title="Logout" Icon={<ExitToApp />} />
       </span>
-      <hr />
-      <h4>Subscriptions</h4>
-      {subscriptions}
-      <hr />
-      <h4>Playlists</h4>
-      {playlists}
+      <span className="bigScreen">
+        <hr />
+        <h4>Subscriptions</h4>
+        {subscriptions}
+        <hr />
+        <h4>Playlists</h4>
+        {playlists}
+      </span>
     </aside>
   );
 };

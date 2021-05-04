@@ -7,11 +7,12 @@ import { login, logout, selectUser } from '../features/userSlice';
 import Header from '../Components/Header';
 import Sidebar from '../Components/Sidebar';
 import Login from '../Components/Login';
-import WatchScreen from '../Screens/WatchScreen';
 import HomeScreen from '../Screens/HomeScreen.jsx';
-import '../css/App.css';
+import WatchScreen from '../Screens/WatchScreen';
 import SearchScreen from '../Screens/SearchScreen';
 import ChannelScreen from '../Screens/ChannelScreen';
+import SubscriptionScreen from '../Screens/SubscriptionScreen';
+import '../css/App.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           <div className="app__body">
             <Sidebar />
             <Switch>
+              <Route path="/subscriptions">
+                <SubscriptionScreen />
+              </Route>
               <Route path="/channel/:channelId">
                 <ChannelScreen />
               </Route>

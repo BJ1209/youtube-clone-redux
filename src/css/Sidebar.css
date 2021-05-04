@@ -10,18 +10,42 @@
 .sidebar::-webkit-scrollbar {
   display: none;
 }
-.sidebar > hr {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .sidebar {
+    width: 100px;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .sidebar .bigScreen {
+    display: none;
+  }
+}
+.sidebar > .bigScreen hr,
+.sidebar hr {
   height: 1px;
   border: 0;
   background-color: lightgray;
   margin: 0.5em 0;
 }
-.sidebar > h4 {
+.sidebar > .bigScreen > h4 {
   padding: 0.5em 1.4em;
   font-size: 0.85rem;
   opacity: 0.6;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+.sidebar a {
+  text-decoration: none;
+}
+@media screen and (min-width: 1200px) {
+  .sidebar .subscription--row {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=Sidebar.css.map */

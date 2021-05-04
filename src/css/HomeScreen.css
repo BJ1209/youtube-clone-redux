@@ -15,10 +15,26 @@
 .homescreen .homescreen__videos {
   padding: 1.2em 1.5em;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
   overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  justify-content: center;
+}
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+  .homescreen .homescreen__videos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 750px) {
+  .homescreen .homescreen__videos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .homescreen .homescreen__videos {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=HomeScreen.css.map */

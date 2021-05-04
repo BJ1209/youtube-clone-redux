@@ -1,10 +1,11 @@
 @use './mixins' as mxn;
+@use './variables' as var;
 
 .video {
-  width: 296px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+
   &:hover {
     .video__btn {
       opacity: 1;
@@ -13,7 +14,6 @@
   }
   #{&}__container {
     width: 100%;
-    aspect-ratio: 16 / 10;
     position: relative;
   }
 
@@ -56,12 +56,27 @@
   #{&}__info {
     display: flex;
     padding: 0.5em;
+    @include mxn.mq(var.$bp-768, var.$bp-1200) {
+      padding: 0.5em 0;
+    }
+    img {
+      @include mxn.mq(var.$bp-768, var.$bp-1200) {
+        height: 35px !important;
+        width: 35px !important;
+      }
+    }
   }
   #{&}__desc {
     h3 {
-      font-weight: 500;
+      font-weight: 600;
       font-size: 1rem;
       margin-bottom: 0.2em;
+      @include mxn.mq(var.$bp-600, var.$bp-1200) {
+        font-size: 0.85rem;
+      }
+      @include mxn.mq(var.$bp-450, var.$bp-600) {
+        font-size: 0.85rem;
+      }
     }
     p {
       font-size: 0.85rem;

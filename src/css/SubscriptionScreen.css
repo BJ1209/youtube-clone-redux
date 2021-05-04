@@ -1,0 +1,9 @@
+.subscriptionScreen {
+  flex: 1;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+/*# sourceMappingURL=SubscriptionScreen.css.map */
