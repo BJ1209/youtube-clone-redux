@@ -1,3 +1,6 @@
+@use './variables' as var;
+@use './mixins' as mxn;
+
 .videoHorizontal {
   display: flex;
   user-select: none;
@@ -9,8 +12,16 @@
     width: 142px;
     height: 80px;
     &.search {
-      width: 350px;
-      height: 200px;
+      min-width: 25vw;
+      min-height: 14vw;
+      @include mxn.mq(var.$bp-768, var.$bp-992) {
+        min-width: 35vw;
+        min-height: 20vw;
+      }
+      @include mxn.mq(var.$bp-0, var.$bp-768) {
+        min-width: 40vw;
+        min-height: 22vw;
+      }
     }
     img {
       object-fit: cover;
@@ -37,30 +48,56 @@
     letter-spacing: -0.5px;
     word-wrap: break-word;
     &.search--title {
-      width: 100%;
+      width: 60ch;
       font-size: 1.1rem;
+      @include mxn.mq(var.$bp-0, var.$bp-1200) {
+        width: 100%;
+      }
+      @include mxn.mq(var.$bp-768, var.$bp-992) {
+        font-size: 1rem;
+      }
+      @include mxn.mq(var.$bp-450, var.$bp-768) {
+        font-size: 0.95rem;
+      }
+      @include mxn.mq(var.$bp-0, var.$bp-450) {
+        font-size: 0.85rem;
+      }
     }
   }
   #{&}__channel {
     display: flex;
     align-items: center;
+
     &.search--channel {
       margin: 0.8em 0;
+      @include mxn.mq(var.$bp-450, var.$bp-768) {
+        margin: 0.4em 0;
+      }
+      @include mxn.mq(var.$bp-0, var.$bp-450) {
+        margin: 0.2em 0;
+      }
     }
+
     & > * + * {
       margin-left: 0.2em;
     }
+
     p {
       color: gray;
       font-size: 0.9rem;
       font-weight: 500;
+      @include mxn.mq(var.$bp-0, var.$bp-450) {
+        font-size: 0.85rem;
+      }
     }
-    svg {
-      color: gray;
-      height: 0.75em;
-      padding-top: 0.1em;
+
+    img {
+      @include mxn.mq(var.$bp-0, var.$bp-600) {
+        display: none;
+      }
     }
   }
+
   #{&}__stats,
   #{&}__description {
     display: flex;
@@ -72,5 +109,8 @@
   }
   #{&}__description {
     margin-top: 0.8em;
+    @include mxn.mq(var.$bp-0, var.$bp-768) {
+      display: none;
+    }
   }
 }

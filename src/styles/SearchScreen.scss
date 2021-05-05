@@ -1,8 +1,15 @@
 @use './mixins' as mxn;
+@use './variables' as var;
 
 .searchScreen {
   @include mxn.layout;
-  padding: 0em 6em 2em;
+  padding: 0em 4em 2em;
+  @include mxn.mq(var.$bp-600, var.$bp-992) {
+    padding: 0em 2em 2em;
+  }
+  @include mxn.mq(var.$bp-0, var.$bp-600) {
+    padding: 0em 1em 2em;
+  }
 
   & > * + * {
     margin-top: 1.5em;

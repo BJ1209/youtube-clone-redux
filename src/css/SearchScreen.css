@@ -4,7 +4,17 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  padding: 0em 6em 2em;
+  padding: 0em 4em 2em;
+}
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  .searchScreen {
+    padding: 0em 2em 2em;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .searchScreen {
+    padding: 0em 1em 2em;
+  }
 }
 .searchScreen > * + * {
   margin-top: 1.5em;
