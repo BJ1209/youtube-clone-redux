@@ -3,9 +3,6 @@
   user-select: none;
   cursor: pointer;
 }
-.videoHorizontal:first-of-type {
-  margin-top: 2em;
-}
 .videoHorizontal .videoHorizontal__video {
   position: relative;
   margin-right: 0.5em;

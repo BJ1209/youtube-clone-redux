@@ -7,15 +7,51 @@
   overflow-y: scroll;
   flex-direction: row;
 }
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  .watchscreen {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 600px) {
+  .watchscreen {
+    padding: 1em;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .watchscreen {
+    padding: 0.5em;
+  }
+}
 .watchscreen > * + * {
   margin-left: 1.5em;
+}
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  .watchscreen > * + * {
+    margin-left: 0;
+    margin-top: 1.5em;
+  }
 }
 .watchscreen .watchscreen__left {
   flex: 0.7;
 }
 .watchscreen .watchscreen__player {
   background-color: #353946;
-  height: 70vh;
+  height: 30vw;
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .watchscreen .watchscreen__player {
+    height: 40vw;
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 992px) {
+  .watchscreen .watchscreen__player {
+    height: 50vw;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .watchscreen .watchscreen__player {
+    height: 55vw;
+  }
 }
 .watchscreen .watchscreen__right {
   flex: 0.3;

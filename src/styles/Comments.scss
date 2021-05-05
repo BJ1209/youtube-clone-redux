@@ -6,6 +6,7 @@
   padding: 0.5em 0;
   display: flex;
   flex-direction: column;
+
   #{&}__number {
     font-weight: 600;
     font-size: 1.1rem;
@@ -16,6 +17,18 @@
     align-items: center;
     & > * + * {
       margin-left: 1em;
+      @include mxn.mq(var.$bp-450, var.$bp-600) {
+        margin-left: 0.5em;
+      }
+    }
+    img {
+      @include mxn.mq(var.$bp-450, var.$bp-600) {
+        width: 35px !important;
+        height: 35px !important;
+      }
+      @include mxn.mq(var.$bp-0, var.$bp-450) {
+        display: none;
+      }
     }
   }
   #{&}__textInput {

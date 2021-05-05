@@ -48,7 +48,7 @@ const VideoMetaData = ({ video }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [video?.snippet?.channelId]);
 
   // useEffect for the subscription status
   useEffect(() => {
@@ -70,7 +70,7 @@ const VideoMetaData = ({ video }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [video?.snippet?.channelId]);
 
   return (
     <div className="videoMetaData">

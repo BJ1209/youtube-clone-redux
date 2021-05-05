@@ -1,50 +1,91 @@
 @use './mixins' as mxn;
+@use './variables' as var;
 
 .videoMetaData {
   margin-top: 1em;
+  @include mxn.mq(var.$bp-0, var.$bp-450) {
+    margin-top: 0em;
+  }
+
   #{&}__top {
     margin-bottom: 0.2em;
   }
+
   #{&}__title {
     font-weight: 500;
     font-size: 1.2rem;
+    @include mxn.mq(var.$bp-600, var.$bp-768) {
+      font-size: 1.1rem;
+    }
+    @include mxn.mq(var.$bp-450, var.$bp-600) {
+      font-size: 1.05rem;
+    }
+    @include mxn.mq(var.$bp-0, var.$bp-450) {
+      font-size: 1rem;
+    }
   }
+
   #{&}__stats {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mxn.mq(var.$bp-450, var.$bp-600) {
+      font-size: 0.9rem;
+    }
+    @include mxn.mq(var.$bp-0, var.$bp-450) {
+      font-size: 0.85rem;
+    }
   }
+
   #{&}__left {
     color: rgb(92, 92, 92);
     & > * + * {
       margin-left: 0.25em;
     }
   }
+
   #{&}__like {
     margin-right: 0.5em;
   }
+
   #{&}__channel {
     border-top: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
     padding: 0.5em 0;
     display: flex;
     align-items: center;
+    img {
+      @include mxn.mq(var.$bp-0, var.$bp-450) {
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
   }
+
   #{&}__channelDetails {
     margin-left: 1em;
     flex: 1;
   }
+
   #{&}__channelTitle {
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 0.2em;
     cursor: pointer;
+    @include mxn.mq(var.$bp-0, var.$bp-450) {
+      font-size: 0.85rem;
+    }
   }
+
   #{&}__channelSubscribers {
     font-size: 0.9rem;
     font-weight: 400;
     color: rgb(92, 92, 92);
+    @include mxn.mq(var.$bp-0, var.$bp-450) {
+      font-size: 0.85rem;
+    }
   }
+
   #{&}__btn {
     @include mxn.btn;
     color: white;
@@ -59,7 +100,11 @@
       color: #333;
       opacity: 0.75;
     }
+    @include mxn.mq(var.$bp-0, var.$bp-450) {
+      padding: 0.6em;
+    }
   }
+
   #{&}__description {
     padding: 0.5em 0;
     border-bottom: 2px solid lightgray;
@@ -70,6 +115,13 @@
       white-space: pre-line;
       height: 74px;
       overflow: hidden;
+
+      @include mxn.mq(var.$bp-600, var.$bp-768) {
+        width: 70ch;
+      }
+      @include mxn.mq(var.$bp-0, var.$bp-600) {
+        width: 100%;
+      }
 
       &.show_more {
         height: 100%;

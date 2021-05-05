@@ -7,9 +7,24 @@
   @include mxn.layout;
   flex-direction: row;
 
+  @include mxn.mq(var.$bp-0, var.$bp-1200) {
+    flex-direction: column;
+  }
+  @include mxn.mq(var.$bp-450, var.$bp-600) {
+    padding: 1em;
+  }
+  @include mxn.mq(var.$bp-0, var.$bp-450) {
+    padding: 0.5em;
+  }
+
   // Gap between the flex-items
   & > * + * {
     margin-left: 1.5em;
+
+    @include mxn.mq(var.$bp-0, var.$bp-1200) {
+      margin-left: 0;
+      margin-top: 1.5em;
+    }
   }
 
   #{&}__left {
@@ -17,7 +32,16 @@
   }
   #{&}__player {
     background-color: #353946;
-    height: 70vh;
+    height: 30vw;
+    @include mxn.mq(var.$bp-992, var.$bp-1200) {
+      height: 40vw;
+    }
+    @include mxn.mq(var.$bp-450, var.$bp-992) {
+      height: 50vw;
+    }
+    @include mxn.mq(var.$bp-0, var.$bp-450) {
+      height: 55vw;
+    }
   }
   #{&}__right {
     flex: 0.3;

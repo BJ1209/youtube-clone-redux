@@ -1,16 +1,32 @@
 .comment {
   display: flex;
 }
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .comment img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
 .comment .comment__details {
   margin-left: 1em;
 }
 .comment .comment__top {
   margin-bottom: 0.5em;
 }
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .comment .comment__top {
+    margin-bottom: 0;
+  }
+}
 .comment .comment__name {
   font-weight: 600;
   font-size: 1.05rem;
   margin-right: 0.5em;
+}
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .comment .comment__name {
+    font-size: 1rem;
+  }
 }
 .comment .comment__timestamp {
   opacity: 0.65;
@@ -18,6 +34,11 @@
 }
 .comment .comment__description {
   font-size: 0.95rem;
+}
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .comment .comment__description {
+    font-size: 0.85rem;
+  }
 }
 
 /*# sourceMappingURL=Comment.css.map */

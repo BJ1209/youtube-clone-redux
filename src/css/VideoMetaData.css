@@ -1,6 +1,11 @@
 .videoMetaData {
   margin-top: 1em;
 }
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .videoMetaData {
+    margin-top: 0em;
+  }
+}
 .videoMetaData .videoMetaData__top {
   margin-bottom: 0.2em;
 }
@@ -8,10 +13,35 @@
   font-weight: 500;
   font-size: 1.2rem;
 }
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .videoMetaData .videoMetaData__title {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 600px) {
+  .videoMetaData .videoMetaData__title {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .videoMetaData .videoMetaData__title {
+    font-size: 1rem;
+  }
+}
 .videoMetaData .videoMetaData__stats {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+@media screen and (min-width: 450px) and (max-width: 600px) {
+  .videoMetaData .videoMetaData__stats {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .videoMetaData .videoMetaData__stats {
+    font-size: 0.85rem;
+  }
 }
 .videoMetaData .videoMetaData__left {
   color: #5c5c5c;
@@ -29,6 +59,12 @@
   display: flex;
   align-items: center;
 }
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .videoMetaData .videoMetaData__channel img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
 .videoMetaData .videoMetaData__channelDetails {
   margin-left: 1em;
   flex: 1;
@@ -39,10 +75,20 @@
   margin-bottom: 0.2em;
   cursor: pointer;
 }
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .videoMetaData .videoMetaData__channelTitle {
+    font-size: 0.85rem;
+  }
+}
 .videoMetaData .videoMetaData__channelSubscribers {
   font-size: 0.9rem;
   font-weight: 400;
   color: #5c5c5c;
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .videoMetaData .videoMetaData__channelSubscribers {
+    font-size: 0.85rem;
+  }
 }
 .videoMetaData .videoMetaData__btn {
   outline: none;
@@ -61,6 +107,11 @@
   color: #333;
   opacity: 0.75;
 }
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .videoMetaData .videoMetaData__btn {
+    padding: 0.6em;
+  }
+}
 .videoMetaData .videoMetaData__description {
   padding: 0.5em 0;
   border-bottom: 2px solid lightgray;
@@ -72,6 +123,16 @@
   white-space: pre-line;
   height: 74px;
   overflow: hidden;
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .videoMetaData .videoMetaData__description p {
+    width: 70ch;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .videoMetaData .videoMetaData__description p {
+    width: 100%;
+  }
 }
 .videoMetaData .videoMetaData__description p.show_more {
   height: 100%;

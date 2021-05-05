@@ -50,9 +50,6 @@ const Comments = ({ videoId, commentCount }) => {
           className="comments__textInput"
           placeholder="Add a public comment..."
         />
-        <button type="reset" className="comments__btn">
-          Cancel
-        </button>
         <button disabled={!input} type="submit" className="comments__btn">
           Comment
         </button>

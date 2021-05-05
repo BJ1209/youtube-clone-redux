@@ -2,9 +2,7 @@
   display: flex;
   user-select: none;
   cursor: pointer;
-  &:first-of-type {
-    margin-top: 2em;
-  }
+
   #{&}__video {
     position: relative;
     margin-right: 0.5em;

@@ -1,4 +1,5 @@
 @use './colors' as clr;
+@use './variables' as var;
 
 @mixin flex {
   display: flex;
@@ -51,12 +52,28 @@
 }
 
 @mixin layout {
-  // for the layout  of watchScreen,channelScreen,searchScreen
+  // for the layout  of homeScreen, watchScreen,channelScreen,searchScreen
   flex: 1;
   background: clr.$clr-screen;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+}
+
+@mixin grid-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  justify-content: center;
+  @include mq(750px, var.$bp-1200) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include mq(450px, 750px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mq(0px, 450px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 // mixin for the media query

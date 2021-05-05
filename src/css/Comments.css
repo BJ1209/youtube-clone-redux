@@ -15,6 +15,22 @@
 .comments .comments__form > * + * {
   margin-left: 1em;
 }
+@media screen and (min-width: 450px) and (max-width: 600px) {
+  .comments .comments__form > * + * {
+    margin-left: 0.5em;
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 600px) {
+  .comments .comments__form img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .comments .comments__form img {
+    display: none;
+  }
+}
 .comments .comments__textInput {
   flex: 1;
   border: none;
