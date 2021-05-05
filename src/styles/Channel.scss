@@ -1,12 +1,15 @@
 @use './variables' as var;
+@use './mixins' as mxn;
+
 .channel {
   display: flex;
   align-items: center;
   padding: 1.5em 0;
   border-bottom: var.$border;
+  cursor: pointer;
 
   &.channel--screen {
-    cursor: pointer;
+    cursor: unset;
   }
 
   #{&}__channelImage {
@@ -17,10 +20,12 @@
       height: 10em;
       border-radius: 50%;
       margin: 0 auto;
-
       &.channelScreen--image {
         border: 1px solid lightgray;
         height: 7em;
+        @include mxn.mq(var.$bp-0, var.$bp-450) {
+          height: 5em;
+        }
       }
     }
   }

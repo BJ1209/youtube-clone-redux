@@ -3,9 +3,10 @@
   align-items: center;
   padding: 1.5em 0;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
 }
 .channel.channel--screen {
-  cursor: pointer;
+  cursor: unset;
 }
 .channel .channel__channelImage {
   flex: 0.33;
@@ -20,6 +21,11 @@
 .channel .channel__channelImage img.channelScreen--image {
   border: 1px solid lightgray;
   height: 7em;
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .channel .channel__channelImage img.channelScreen--image {
+    height: 5em;
+  }
 }
 .channel .channel__channelDetails {
   flex: 0.67;

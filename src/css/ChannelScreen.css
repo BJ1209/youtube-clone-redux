@@ -4,12 +4,33 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  padding: 1.2em 1.5em;
+}
+.channelScreen .channelScreen__title {
+  margin: 0.5em 0;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 .channelScreen .channelScreen__videos {
-  padding: 1.2em 1.5em;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  justify-content: center;
+}
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+  .channelScreen .channelScreen__videos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 750px) {
+  .channelScreen .channelScreen__videos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  .channelScreen .channelScreen__videos {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=ChannelScreen.css.map */

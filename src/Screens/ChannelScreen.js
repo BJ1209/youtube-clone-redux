@@ -55,6 +55,7 @@ const ChannelScreen = () => {
     <div className="channelScreen">
       <img className="channelScreen__banner" />
       <Channel channelScreen channelId={channelId} channel={channel?.snippet} />
+      <h3 className="channelScreen__title">Uploads</h3>
       <div className="channelScreen__videos">
         {channelVideos.map((video) => (
           <Video key={video?.id} video={video} channelScreen />

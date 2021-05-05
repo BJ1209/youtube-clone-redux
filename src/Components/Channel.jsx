@@ -28,7 +28,7 @@ const Channel = ({ channel, channelId, channelScreen, subscriptionScreen }) => {
   const clickHandler = () => (!channelScreen ? history.push(`/channel/${channelId}`) : null);
 
   return (
-    <div className={`channel ${!channelScreen ? 'channel--screen' : ''}`} onClick={clickHandler}>
+    <div className={`channel ${channelScreen ? 'channel--screen' : ''}`} onClick={clickHandler}>
       <div className={`channel__channelImage`}>
         <img
           className={channelScreen ? 'channelScreen--image' : ''}

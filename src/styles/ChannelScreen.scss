@@ -3,10 +3,13 @@
 
 .channelScreen {
   @include mxn.layout;
+  padding: var.$main-padding;
+  #{&}__title {
+    margin: 0.5em 0;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
   #{&}__videos {
-    padding: var.$main-padding;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+    @include mxn.grid-layout;
   }
 }
