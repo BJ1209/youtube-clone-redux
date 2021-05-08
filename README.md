@@ -1,5 +1,4 @@
 <br>
-<br>
 <div align="center">
   <img alt="Home-Image" src="./src/Assets/images/youtube.png" width="50%" />
 </div>
@@ -13,7 +12,6 @@ Using
 <br />
 Fully Responsive
 </p>
-<br>
 
 ## Packages Used:
 <ul>
@@ -28,7 +26,6 @@ Fully Responsive
  <li>react-loading-skeleton - Used as loading components.</li>
  <li>react-lazy-load-image-component - Used for the Lazy load images.</li>
 </ul>
-<br>
 
 ## API: 
 Many features can be added to this project as it is not absolute. You can follow the *[documentation](https://developers.google.com/youtube/v3/docs)* for more data end-points.<br>
@@ -40,13 +37,10 @@ I have used some end-points like fetching:
  5. user's subscriptions and playlists
  6.  search query
 
-<br>
-
 
 ## API Key:
 Create a new project *[here](https://console.cloud.google.com/)* and  get the API key from dashboard/credential panel and paste in the *axios.js* in the *src/utils* folder.
 
-<br>
 
 
 ## Preview of the Project: 
@@ -91,3 +85,8 @@ Create a new project *[here](https://console.cloud.google.com/)* and  get the AP
    ```
    npm run build
    ``` 
+
+```
+If you like the work then don't forget to hit that ⭐ button to show some appreciation & love
+for this project as your token of love does wonders.
+```
