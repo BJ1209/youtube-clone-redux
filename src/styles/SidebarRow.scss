@@ -6,10 +6,13 @@
   @include mxn.flex;
   padding: 0.4em 1.2em;
 
-  @include mxn.mq(var.$bp-768, var.$bp-1200) {
+  @include mxn.mq(var.$bp-0, var.$bp-1200) {
     flex-direction: column;
     align-items: center;
     padding: 0.4em;
+  }
+  @include mxn.mq(var.$bp-0, var.$bp-768) {
+    padding: 1em;
   }
 
   &:hover {
@@ -38,7 +41,7 @@
     fill: clr.$clr-sbr-icon;
     margin-right: 0.9em;
     font-size: 1.5rem;
-    @include mxn.mq(var.$bp-768, var.$bp-1200) {
+    @include mxn.mq(var.$bp-0, var.$bp-1200) {
       margin-right: 0em;
     }
   }

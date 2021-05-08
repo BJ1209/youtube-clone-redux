@@ -17,10 +17,19 @@
 }
 @media screen and (min-width: 0px) and (max-width: 768px) {
   .sidebar {
-    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (min-width: 0px) and (max-width: 1200px) {
   .sidebar .bigScreen {
     display: none;
   }

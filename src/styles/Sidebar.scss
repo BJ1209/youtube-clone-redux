@@ -11,11 +11,21 @@
     width: 100px;
   }
   @include mxn.mq(var.$bp-0, var.$bp-768) {
-    display: none;
+    // display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
   }
 
   .bigScreen {
-    @include mxn.mq(var.$bp-768, var.$bp-1200) {
+    @include mxn.mq(var.$bp-0, var.$bp-1200) {
       display: none;
     }
   }
